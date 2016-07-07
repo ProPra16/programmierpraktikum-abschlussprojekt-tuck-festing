@@ -72,9 +72,9 @@ public class Controller {
         }
         this.state = !this.state;
         */
-        if(state) {
+       /* if(state) {
             onSaveCode();
-            
+
             uneditableAreaText.clear();
             code = null;
             code = current;
@@ -109,7 +109,7 @@ public class Controller {
             }
         }
 
-
+        */
     }
 
     /*
