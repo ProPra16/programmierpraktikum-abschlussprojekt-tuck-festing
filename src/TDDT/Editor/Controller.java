@@ -6,7 +6,10 @@ import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 /*
 das ist Controller (Duh) für unsere fxml
  */
@@ -20,14 +23,18 @@ public class Controller {
 
     @FXML
     private TextArea uneditableAreaTask;            //das rechte untere TextArea
-
+    /*
     private TextFile current;
     private TextFile task;
     private TextFile code;
     private TextFile test;
     private boolean state = true;                   //if true -> TextFiles sind an desssen stellen.
-                                                    //Das ist für die implimentierung von der
-                                                    //Taste Compile wichtig, damit man weiss,
+                */                                    //Das ist für die implimentierung von der
+    private ArrayList<String> current = new ArrayList();
+    private ArrayList<String> task = new ArrayList();
+    private ArrayList<String> code = new ArrayList();
+    private ArrayList<String> test = new ArrayList();
+    private boolean state = true;                                            //Taste Compile wichtig, damit man weiss,
                                                     //wo gerade der Code und wo die Tests sind
 
     private Model model;
@@ -44,7 +51,7 @@ public class Controller {
      */
     @FXML
     private void makeStep(){
-        if(state) {
+        /*if(state) {
             onSaveCode();
             uneditableAreaText.clear();
             code.getContent().forEach(line -> uneditableAreaText.appendText(line +"\n"));
@@ -64,6 +71,45 @@ public class Controller {
 
         }
         this.state = !this.state;
+        */
+        if(state) {
+            onSaveCode();
+            
+            uneditableAreaText.clear();
+            code = null;
+            code = current;
+            current = null;
+            for (String l : code) {
+                uneditableAreaText.appendText(l + "\n");
+            }
+            onSaveTest();
+            areaText.clear();
+            test = null;
+            test = current;
+            current = null;
+            for (String l : test) {
+                areaText.appendText(l + "\n");
+            }
+        }
+        else{
+            onSaveCode();
+            areaText.clear();
+            code.clear();
+            code = current;
+            for (String t : code) {
+                areaText.appendText(t + "\n");
+            }
+            onSaveTest();
+            test.clear();
+            uneditableAreaText.clear();
+            test = current;
+            current.clear();
+            for (String t : test) {
+                uneditableAreaText.appendText(t + "\n");
+            }
+        }
+
+
     }
 
     /*
@@ -73,7 +119,7 @@ public class Controller {
      */
     @FXML
     private void onLoadTask(){
-        FileChooser chooser = new FileChooser();
+       /* FileChooser chooser = new FileChooser();
         chooser.setInitialDirectory(new File("./"));
         File file = chooser.showOpenDialog(null);
         if(file != null){
@@ -88,11 +134,13 @@ public class Controller {
                 System.out.print("Failed");
             }
         }
-
+        */
     }
+
 
     @FXML
     private void onLoadTest(){
+            /*
         FileChooser chooser = new FileChooser();
         chooser.setInitialDirectory(new File("./"));
         File file = chooser.showOpenDialog(null);
@@ -108,11 +156,12 @@ public class Controller {
                 System.out.print("Failed");
             }
         }
+        */
 
     }
     @FXML
     private void onLoadCode(){
-        FileChooser chooser = new FileChooser();
+       /* FileChooser chooser = new FileChooser();
         chooser.setInitialDirectory(new File("./"));
         File file = chooser.showOpenDialog(null);
         if(file != null){
@@ -126,7 +175,7 @@ public class Controller {
             else{
                 System.out.print("Failed");
             }
-        }
+        }*/
 
     }
     /*
@@ -140,7 +189,13 @@ public class Controller {
 
     @FXML
     private void onSaveTest(){
-        if(state) {
+        test.addAll(Arrays.asList(uneditableAreaText.getText().split("\n")));
+        for(String test1 : test )
+        {
+            System.out.println("" + test1);
+        }
+        current = test;
+      /*  if(state) {
             TextFile textFile = new TextFile(test.getFile(), Arrays.asList(uneditableAreaText.getText().split("\n")));
             model.save(textFile);
         }
@@ -148,12 +203,18 @@ public class Controller {
             TextFile textFile = new TextFile(test.getFile(), Arrays.asList(areaText.getText().split("\n")));
             model.save(textFile);
         }
+        */
 
     }
 
     @FXML
     private void onSaveCode(){
-        if(state) {
+        //List<String> t = Arrays.asList(areaText.getText().split("\n"));
+       code.addAll(Arrays.asList(areaText.getText().split("\n")));
+        //System.out.println(areaText.getText()+ "");
+        current = code;
+
+       /* if(state) {
             TextFile textFile = new TextFile(code.getFile(), Arrays.asList(areaText.getText().split("\n")));
             model.save(textFile);
         }
@@ -161,6 +222,7 @@ public class Controller {
             TextFile textFile = new TextFile(code.getFile(), Arrays.asList(uneditableAreaText.getText().split("\n")));
             model.save(textFile);
         }
+        */
     }
     @FXML
     private void onClose(){
