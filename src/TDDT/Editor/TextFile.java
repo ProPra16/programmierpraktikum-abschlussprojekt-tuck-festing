@@ -13,8 +13,8 @@ public class TextFile {
 
     private final List<String> content;
 
-    public TextFile(Path file, List<String> content){
-        this.file = file;
+    public TextFile( List<String> content){
+
         this.content = content;
     }
     public Path getFile(){

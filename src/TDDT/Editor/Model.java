@@ -1,5 +1,9 @@
 package TDDT.Editor;
 
+import TDDT.XML_body.Exersise;
+import TDDT.XML_body.Exersises;
+import TDDT.XML_body.XMLController;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -14,15 +18,39 @@ import java.util.List;
  */
 
 public class Model {
+    Exersise currentExercise;
+    Exersises allExercises;
+
+
+    public Model()
+    {
+        currentExercise = loadExersise();
+        //initiateAllTextFiles(currentExercise);
+
+    }
     /*
     Save speichert mittels Files, mehr dazu kann man in der Klassenbeschreibung lesen :)
      */
-    public void save(TextFile textFile){
+   /* public void save(TextFile textFile){
         try {
             Files.write(textFile.getFile(), textFile.getContent(), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING);
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }*/
+    private  Exersise loadExersise()
+    {
+        // Diese Methode returned immmoment nur die erste Aufgabe später soll
+        allExercises = XMLController.loadAllExercises();
+        return allExercises.getExersises().get(0);
+        //return XMLController.loadAllExercises().getExersises().get(0);
+
+    }
+    private void saveExersise(int index)
+    {
+        allExercises.set(0, currentExercise);
+        XMLController.saveAllExercises(e);
+
     }
 
     /*
@@ -35,6 +63,13 @@ public class Model {
     Das kann man am besten in der Klasse Wrapper selbst machen, aber vorher soll alles andere gemacht werden,
     da wir die möglichen exceptions erst wissen sollen, damit wir die entsprechende Alarms konfigurieren.
      */
+    public void setAllTextFiles(TextFile code, TextFile test, TextFile task)
+    {
+        code.set(new TextFile(e.getWriteableCode()));
+        test.set(new TextFile(e.getTestCode()));
+        task.set(new TextFile(e.getExersiseText()));
+
+    }
 
     public Wrapper<TextFile> load(Path file){
         try {

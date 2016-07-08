@@ -23,24 +23,28 @@ public class Controller {
 
     @FXML
     private TextArea uneditableAreaTask;            //das rechte untere TextArea
-    /*
-    private TextFile current;
-    private TextFile task;
-    private TextFile code;
-    private TextFile test;
-    private boolean state = true;                   //if true -> TextFiles sind an desssen stellen.
-                */                                    //Das ist für die implimentierung von der
+
+                  //if true -> TextFiles sind an desssen stellen.
+    /*                                             //Das ist für die implimentierung von der
     private ArrayList<String> current = new ArrayList();
     private ArrayList<String> task = new ArrayList();
     private ArrayList<String> code = new ArrayList();
     private ArrayList<String> test = new ArrayList();
-    private boolean state = true;                                            //Taste Compile wichtig, damit man weiss,
+    private boolean state = true;
+                      */
+
+    private TextFile current;
+    private TextFile task;
+    private TextFile code;
+    private TextFile test;
+    private boolean state = true;//Taste Compile wichtig, damit man weiss,
                                                     //wo gerade der Code und wo die Tests sind
 
     private Model model;
 
-    public Controller(Model model){
-        this.model = model;
+    public Controller(TextFile code, TextFile test, TextFile task){
+        model = new Model();
+        model.setAllTextFiles(code, test, task);
     }
 
 
@@ -51,7 +55,7 @@ public class Controller {
      */
     @FXML
     private void makeStep(){
-        /*if(state) {
+        if(state) {
             onSaveCode();
             uneditableAreaText.clear();
             code.getContent().forEach(line -> uneditableAreaText.appendText(line +"\n"));
@@ -71,7 +75,7 @@ public class Controller {
 
         }
         this.state = !this.state;
-        */
+
        /* if(state) {
             onSaveCode();
 
