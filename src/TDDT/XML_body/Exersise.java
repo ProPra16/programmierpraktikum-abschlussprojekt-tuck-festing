@@ -4,26 +4,27 @@ package TDDT.XML_body;
  * Created by Stefan on 25.06.2016.
  */
 import java.util.ArrayList;
+import java.util.List;
 
 public class Exersise {
      String exersiseName;
-     ArrayList<String> testCode;
-     ArrayList<String>  writeableCode;
-     ArrayList<String>  exersiseText;
+     List<String> testCode;
+     List<String> writeableCode;
+     List<String>  exersiseText;
     //May add Constructors for the extensions
     public Exersise()
     {
         //Cant construct this body in Code
     }
-    public void setTestCode(ArrayList<String> t)
+    public void setTestCode(List<String> t)
     {
         writeableCode = t;
     }
-    public void setWriteableCode(ArrayList<String> t)
+    public void setWriteableCode(List<String> t)
     {
         testCode = t;
     }
-    public void setExersiseText(ArrayList<String> t)
+    public void setExersiseText(List<String> t)
     {
         exersiseText = t;
     }
@@ -41,14 +42,14 @@ public class Exersise {
         this.exersiseName = exersiseName;
     }
 
-    public ArrayList<String> getTestCode() {
+    public List<String> getTestCode() {
         return testCode;
     }
-    public ArrayList<String> getWriteableCode() {
+    public List<String> getWriteableCode() {
         return writeableCode;
     }
 
-    public ArrayList<String> getExersiseText() {
+    public List<String> getExersiseText() {
         return exersiseText;
     }
 }

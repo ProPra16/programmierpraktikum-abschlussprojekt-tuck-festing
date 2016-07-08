@@ -9,7 +9,7 @@ import java.util.List;
  */
 
 public class TextFile {
-    private final Path file;
+
 
     private final List<String> content;
 
@@ -17,9 +17,7 @@ public class TextFile {
 
         this.content = content;
     }
-    public Path getFile(){
-        return this.file;
-    }
+
     public List<String> getContent(){
         return this.content;
     }

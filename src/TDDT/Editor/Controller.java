@@ -1,5 +1,6 @@
 package TDDT.Editor;
 
+import TDDT.XML_body.Exersise;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
@@ -123,22 +124,15 @@ public class Controller {
      */
     @FXML
     private void onLoadTask(){
-       /* FileChooser chooser = new FileChooser();
-        chooser.setInitialDirectory(new File("./"));
-        File file = chooser.showOpenDialog(null);
-        if(file != null){
-            Wrapper<TextFile> io = model.load(file.toPath());
-            if(io.returnStatus() && io.hasData()){
-                task = io.getData();
+          model = new Model();
+          model.setAllTextFiles(code, test, task);
 
-                uneditableAreaTask.clear();
-                task.getContent().forEach(line -> uneditableAreaTask.appendText(line +"\n"));
-            }
-            else{
-                System.out.print("Failed");
-            }
-        }
-        */
+    }
+    private void saveTask()
+    {
+        model.getExersise().setWriteableCode(code.getContent());
+        model.getExersise().setTestCode(test.getContent());
+        model.saveExersise(0);
     }
 
 

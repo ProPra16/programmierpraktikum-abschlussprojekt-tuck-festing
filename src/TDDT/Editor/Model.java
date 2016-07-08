@@ -38,6 +38,10 @@ public class Model {
             e.printStackTrace();
         }
     }*/
+    public Exersise getExersise()
+    {
+        return this.currentExercise;
+    }
     private  Exersise loadExersise()
     {
         // Diese Methode returned immmoment nur die erste Aufgabe später soll
@@ -46,7 +50,7 @@ public class Model {
         //return XMLController.loadAllExercises().getExersises().get(0);
 
     }
-    private void saveExersise(int index)
+    public void saveExersise(int index)
     {
         allExercises.set(0, currentExercise);
         XMLController.saveAllExercises(e);
