@@ -41,9 +41,10 @@ public class Controller {
     private boolean state = true;//Taste Compile wichtig, damit man weiss,
                                                     //wo gerade der Code und wo die Tests sind
 
+
     private Model model;
 
-    public Controller(TextFile code, TextFile test, TextFile task){
+    public Controller(){
         model = new Model();
         model.setAllTextFiles(code, test, task);
     }
@@ -77,44 +78,7 @@ public class Controller {
         }
         this.state = !this.state;
 
-       /* if(state) {
-            onSaveCode();
 
-            uneditableAreaText.clear();
-            code = null;
-            code = current;
-            current = null;
-            for (String l : code) {
-                uneditableAreaText.appendText(l + "\n");
-            }
-            onSaveTest();
-            areaText.clear();
-            test = null;
-            test = current;
-            current = null;
-            for (String l : test) {
-                areaText.appendText(l + "\n");
-            }
-        }
-        else{
-            onSaveCode();
-            areaText.clear();
-            code.clear();
-            code = current;
-            for (String t : code) {
-                areaText.appendText(t + "\n");
-            }
-            onSaveTest();
-            test.clear();
-            uneditableAreaText.clear();
-            test = current;
-            current.clear();
-            for (String t : test) {
-                uneditableAreaText.appendText(t + "\n");
-            }
-        }
-
-        */
     }
 
     /*
@@ -128,7 +92,8 @@ public class Controller {
           model.setAllTextFiles(code, test, task);
 
     }
-    private void saveTask()
+    // Hier Button hinzufügen?
+    private void onSaveTask()
     {
         model.getExersise().setWriteableCode(code.getContent());
         model.getExersise().setTestCode(test.getContent());
@@ -187,12 +152,7 @@ public class Controller {
 
     @FXML
     private void onSaveTest(){
-        test.addAll(Arrays.asList(uneditableAreaText.getText().split("\n")));
-        for(String test1 : test )
-        {
-            System.out.println("" + test1);
-        }
-        current = test;
+
       /*  if(state) {
             TextFile textFile = new TextFile(test.getFile(), Arrays.asList(uneditableAreaText.getText().split("\n")));
             model.save(textFile);
@@ -202,15 +162,17 @@ public class Controller {
             model.save(textFile);
         }
         */
+        code = new TextFile(Arrays.asList(areaText.getText().split("\n")));
+        test = new TextFile(Arrays.asList(areaText.getText().split("\n")));
+        model.getExersise().setWriteableCode(code.getContent());
+        model.getExersise().setTestCode(test.getContent());
+        model.saveExersise(0);
 
     }
 
     @FXML
     private void onSaveCode(){
-        //List<String> t = Arrays.asList(areaText.getText().split("\n"));
-       code.addAll(Arrays.asList(areaText.getText().split("\n")));
-        //System.out.println(areaText.getText()+ "");
-        current = code;
+
 
        /* if(state) {
             TextFile textFile = new TextFile(code.getFile(), Arrays.asList(areaText.getText().split("\n")));

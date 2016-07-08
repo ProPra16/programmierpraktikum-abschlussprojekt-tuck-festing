@@ -25,6 +25,7 @@ public class Model {
     public Model()
     {
         currentExercise = loadExersise();
+        System.out.print("test");
         //initiateAllTextFiles(currentExercise);
 
     }
@@ -52,8 +53,8 @@ public class Model {
     }
     public void saveExersise(int index)
     {
-        allExercises.set(0, currentExercise);
-        XMLController.saveAllExercises(e);
+        allExercises.getExersises().set(0, currentExercise );
+        XMLController.saveAllExercises(allExercises);
 
     }
 
@@ -69,16 +70,16 @@ public class Model {
      */
     public void setAllTextFiles(TextFile code, TextFile test, TextFile task)
     {
-        code.set(new TextFile(e.getWriteableCode()));
-        test.set(new TextFile(e.getTestCode()));
-        task.set(new TextFile(e.getExersiseText()));
+        code = new TextFile(currentExercise.getWriteableCode());
+        test = new TextFile(currentExercise.getTestCode());
+        task = new TextFile(currentExercise.getExersiseText());
 
     }
 
     public Wrapper<TextFile> load(Path file){
         try {
             List<String> lines = Files.readAllLines(file);
-            return new Wrapper<>(true, new TextFile(file, lines));
+            return new Wrapper<>(true, new TextFile( lines));
         } catch (IOException e) {
             e.printStackTrace();
             return new Wrapper<>(false, null);
