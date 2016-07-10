@@ -1,9 +1,12 @@
+
 package Test;
 
-import TDDT.Compiler.CompileHelper;
+import Compiler.CompileHelper;
 import org.junit.Test;
 import vk.core.api.CompilerResult;
 import vk.core.api.TestResult;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by burba on 30.06.2016.
@@ -11,41 +14,40 @@ import vk.core.api.TestResult;
 public class CompileHelper_Tests {
 
     @Test
-    public void Test_CompilerAndTestRunner(){
+    public void Test_CompilerAndTestRunner() {
 
         String sourceClass =
-                "public class Main {\n" +
-                "\n" +
-                "    public static boolean totest(){\n" +
-                "        return true;\n" +
-                "    }\n" +
-                "\n" +
-                "}";
+                "public class XMain {\n" +
+                        "\n" +
+                        "    public static boolean ToTest(){\n" +
+                        "        return true;\n" +
+                        "    }\n" +
+                        "\n" +
+                        "}";
 
         String testClass =
                 "import org.junit.Test;\n" +
-                "import static org.junit.Assert.assertEquals;\n" +
-                "\n" +
-                "public class MainTest {\n" +
-                "\n" +
-                "   @Test\n" +
-                "   public void Test(){\n" +
-                        "Main.totest();\n"+
-                "       //assertEquals(false, Main.ToTest());\n" +
-                "   }\n" +
-                "}";
+                        "import static org.junit.Assert.assertEquals;\n" +
+                        "\n" +
+                        "public class XMainTest {\n" +
+                        "\n" +
+                        "   @Test\n" +
+                        "   public void Test(){\n" +
+                        "       assertEquals(true, XMain.ToTest());\n" +
+                        "   }\n" +
+                        "}";
 
         CompileHelper compiler = new CompileHelper();
-        compiler.AddSourceClass("Main", sourceClass);
-        compiler.SetTest("MainTest", testClass);
+        compiler.AddSourceClass("XMain", sourceClass);
+        compiler.SetTest("XMainTest", testClass);
 
         compiler.CompileAndTest();
 
         TestResult tResult = compiler.GetTestResult();
         CompilerResult cResult = compiler.GetCompilerResult();
 
-        String tessttt = "   ";
-
+        assertEquals(0, tResult.getNumberOfFailedTests());
+        assertEquals(0, tResult.getTestFailures().size());
     }
 
 }
