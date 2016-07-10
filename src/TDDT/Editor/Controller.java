@@ -88,6 +88,8 @@ public class Controller {
      */
     @FXML
     private void onLoadTask(){
+        areaText.clear();
+        uneditableAreaText.clear();
         model = new Model();
         model.setAllTextFiles(code, test, task);
         code.getContent().forEach(line -> areaText.appendText(line +"\n"));
@@ -169,7 +171,7 @@ public class Controller {
         }
         */
         code = new TextFile(Arrays.asList(areaText.getText().split("\n")));
-        test = new TextFile(Arrays.asList(areaText.getText().split("\n")));
+        test = new TextFile(Arrays.asList(uneditableAreaText.getText().split("\n")));
         model.getExersise().setWriteableCode(code.getAsArrayList());
         model.getExersise().setTestCode(test.getAsArrayList());
         model.saveExersise(0);

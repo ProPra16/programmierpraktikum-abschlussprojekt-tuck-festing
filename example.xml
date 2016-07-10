@@ -3,18 +3,59 @@
  <object class="TDDT.XML_body.Exersises" id="Exersises0">
   <void property="exersises">
    <void method="add">
-    <object class="TDDT.XML_body.Exersise">
+    <object class="TDDT.XML_body.Exersise" id="Exersise0">
      <void property="exersiseName">
       <string>kek</string>
      </void>
      <void property="testCode">
       <object class="java.util.ArrayList">
        <void method="add">
-        <string>sdfddsg</string>
+        <string>sdfsdf</string>
        </void>
       </object>
      </void>
+     <void property="writeableCode">
+      <void index="0">
+       <string>fsd</string>
+      </void>
+      <void method="add">
+       <string>fs</string>
+      </void>
+      <void method="add">
+       <string>gds</string>
+      </void>
+      <void method="add">
+       <string>h</string>
+      </void>
+      <void method="add">
+       <string>df</string>
+      </void>
+      <void method="add">
+       <string>hd</string>
+      </void>
+      <void method="add">
+       <string>fh</string>
+      </void>
+      <void method="add">
+       <string>f</string>
+      </void>
+     </void>
     </object>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
    </void>
    <void method="add">
     <object class="TDDT.XML_body.Exersise"/>
