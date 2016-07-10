@@ -1,5 +1,7 @@
-package Editor;
+package main.java.Editor;
 
+import TDDT.Editor.Controller;
+import TDDT.Editor.Model;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -11,7 +13,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample.fxml"));
-        loader.setControllerFactory(t -> new Controller(new Model()));
+        loader.setControllerFactory(t -> new Controller());
 
         primaryStage.setScene(new Scene(loader.load()));
         primaryStage.show();

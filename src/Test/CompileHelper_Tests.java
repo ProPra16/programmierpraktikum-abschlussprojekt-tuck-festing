@@ -1,7 +1,7 @@
 
 package Test;
 
-import Compiler.CompileHelper;
+import TDDT.Compiler.CompileHelper;
 import org.junit.Test;
 import vk.core.api.CompilerResult;
 import vk.core.api.TestResult;

@@ -7,40 +7,29 @@
      <void property="exersiseName">
       <string>kek</string>
      </void>
+     <void property="exersiseText">
+      <object class="java.util.ArrayList">
+       <void method="add">
+        <string></string>
+       </void>
+      </object>
+     </void>
      <void property="testCode">
       <object class="java.util.ArrayList">
        <void method="add">
-        <string>sdfsdf</string>
+        <string>ERSERESR</string>
        </void>
       </object>
      </void>
      <void property="writeableCode">
       <void index="0">
-       <string>fsd</string>
-      </void>
-      <void method="add">
-       <string>fs</string>
-      </void>
-      <void method="add">
-       <string>gds</string>
-      </void>
-      <void method="add">
-       <string>h</string>
-      </void>
-      <void method="add">
-       <string>df</string>
-      </void>
-      <void method="add">
-       <string>hd</string>
-      </void>
-      <void method="add">
-       <string>fh</string>
-      </void>
-      <void method="add">
-       <string>f</string>
+       <string>SERSRSERS</string>
       </void>
      </void>
     </object>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
    </void>
    <void method="add">
     <object class="TDDT.XML_body.Exersise"/>
