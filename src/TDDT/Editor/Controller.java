@@ -88,22 +88,28 @@ public class Controller {
      */
     @FXML
     private void onLoadTask(){
-          model = new Model();
-          model.setAllTextFiles(code, test, task);
+        model = new Model();
+        model.setAllTextFiles(code, test, task);
+        code.getContent().forEach(line -> areaText.appendText(line +"\n"));
+        test.getContent().forEach(line -> uneditableAreaText.appendText(line +"\n"));
 
     }
     // Hier Button hinzufügen?
     private void onSaveTask()
     {
-        model.getExersise().setWriteableCode(code.getContent());
-        model.getExersise().setTestCode(test.getContent());
+        model.getExersise().setWriteableCode(code.getAsArrayList());
+        model.getExersise().setTestCode(test.getAsArrayList());
         model.saveExersise(0);
     }
 
 
     @FXML
     private void onLoadTest(){
-            /*
+
+        model.getExersise().setWriteableCode(code.getAsArrayList());
+        model.getExersise().setTestCode(test.getAsArrayList());
+        model.saveExersise(0);
+        /*
         FileChooser chooser = new FileChooser();
         chooser.setInitialDirectory(new File("./"));
         File file = chooser.showOpenDialog(null);
@@ -164,8 +170,8 @@ public class Controller {
         */
         code = new TextFile(Arrays.asList(areaText.getText().split("\n")));
         test = new TextFile(Arrays.asList(areaText.getText().split("\n")));
-        model.getExersise().setWriteableCode(code.getContent());
-        model.getExersise().setTestCode(test.getContent());
+        model.getExersise().setWriteableCode(code.getAsArrayList());
+        model.getExersise().setTestCode(test.getAsArrayList());
         model.saveExersise(0);
 
     }

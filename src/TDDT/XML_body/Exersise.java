@@ -8,23 +8,23 @@ import java.util.List;
 
 public class Exersise {
      String exersiseName;
-     List<String> testCode;
-     List<String> writeableCode;
-     List<String>  exersiseText;
+     ArrayList<String> testCode;
+     ArrayList<String> writeableCode;
+     ArrayList<String>  exersiseText;
     //May add Constructors for the extensions
     public Exersise()
     {
         //Cant construct this body in Code
     }
-    public void setTestCode(List<String> t)
+    public void setTestCode(ArrayList<String> t)
     {
         writeableCode = t;
     }
-    public void setWriteableCode(List<String> t)
+    public void setWriteableCode(ArrayList<String> t)
     {
         testCode = t;
     }
-    public void setExersiseText(List<String> t)
+    public void setExersiseText(ArrayList<String> t)
     {
         exersiseText = t;
     }
@@ -42,14 +42,14 @@ public class Exersise {
         this.exersiseName = exersiseName;
     }
 
-    public List<String> getTestCode() {
+    public ArrayList<String> getTestCode() {
         return testCode;
     }
-    public List<String> getWriteableCode() {
+    public ArrayList<String> getWriteableCode() {
         return writeableCode;
     }
 
-    public List<String> getExersiseText() {
+    public ArrayList<String> getExersiseText() {
         return exersiseText;
     }
 }

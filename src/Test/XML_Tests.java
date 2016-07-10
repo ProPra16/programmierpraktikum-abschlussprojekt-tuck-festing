@@ -17,7 +17,7 @@ public class XML_Tests {
     {
         allExersises = new Exersises();
         Exersise exersise = new Exersise();
-        exersise.setExersiseName("test");
+        exersise.setExersiseName("kek");
         ArrayList<Exersise> exersiseList = new ArrayList<Exersise>();
         exersiseList.add(exersise);
         allExersises.setExersises(exersiseList);

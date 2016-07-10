@@ -1,6 +1,7 @@
 package TDDT.Editor;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 
 /**************
@@ -20,6 +21,12 @@ public class TextFile {
 
     public List<String> getContent(){
         return this.content;
+    }
+    public ArrayList<String> getAsArrayList()
+    {
+    ArrayList<String> t = new ArrayList<String>();
+        t.addAll(content);
+        return t;
     }
     
 }
