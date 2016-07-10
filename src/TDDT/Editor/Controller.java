@@ -87,7 +87,7 @@ public class Controller {
     ->mittels load aus der Klasse Model ein wrapper füllen -> in die entsprechende Area zeilenweise packen
      */
     @FXML
-    private void onLoadTask(){
+    private void onLoadTask(){ // die Load methode.(muss möglicherweise an den state angepasst werden)
         areaText.clear();
         uneditableAreaText.clear();
         model = new Model();
@@ -96,21 +96,11 @@ public class Controller {
         test.getContent().forEach(line -> uneditableAreaText.appendText(line +"\n"));
 
     }
-    // Hier Button hinzufügen?
-    private void onSaveTask()
-    {
-        model.getExersise().setWriteableCode(code.getAsArrayList());
-        model.getExersise().setTestCode(test.getAsArrayList());
-        model.saveExersise(0);
-    }
-
 
     @FXML
-    private void onLoadTest(){
+    private void onLoadTest(){ // kann wegfallen
 
-        model.getExersise().setWriteableCode(code.getAsArrayList());
-        model.getExersise().setTestCode(test.getAsArrayList());
-        model.saveExersise(0);
+
         /*
         FileChooser chooser = new FileChooser();
         chooser.setInitialDirectory(new File("./"));
@@ -131,7 +121,7 @@ public class Controller {
 
     }
     @FXML
-    private void onLoadCode(){
+    private void onLoadCode(){ // Kann weg
        /* FileChooser chooser = new FileChooser();
         chooser.setInitialDirectory(new File("./"));
         File file = chooser.showOpenDialog(null);
@@ -170,16 +160,19 @@ public class Controller {
             model.save(textFile);
         }
         */
+
+        task = new TextFile(Arrays.asList(uneditableAreaTask.getText().split("\n")));
         code = new TextFile(Arrays.asList(areaText.getText().split("\n")));
         test = new TextFile(Arrays.asList(uneditableAreaText.getText().split("\n")));
         model.getExersise().setWriteableCode(code.getAsArrayList());
         model.getExersise().setTestCode(test.getAsArrayList());
+        model.getExersise().setExersiseText(task.getAsArrayList());
         model.saveExersise(0);
 
     }
 
     @FXML
-    private void onSaveCode(){
+    private void onSaveCode(){ // Kann weg
 
 
        /* if(state) {

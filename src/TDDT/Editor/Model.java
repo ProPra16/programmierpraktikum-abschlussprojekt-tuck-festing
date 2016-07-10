@@ -25,7 +25,6 @@ public class Model {
     public Model()
     {
         currentExercise = loadExersise();
-        System.out.print("test");
         //initiateAllTextFiles(currentExercise);
 
     }
