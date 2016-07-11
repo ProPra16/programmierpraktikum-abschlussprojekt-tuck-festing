@@ -18,11 +18,11 @@ public class Exersise {
     }
     public void setTestCode(ArrayList<String> t)
     {
-        writeableCode = t;
+        testCode = t;
     }
     public void setWriteableCode(ArrayList<String> t)
     {
-        testCode = t;
+       writeableCode = t;
     }
     public void setExersiseText(ArrayList<String> t)
     {

@@ -3,30 +3,47 @@
  <object class="TDDT.XML_body.Exersises" id="Exersises0">
   <void property="exersises">
    <void method="add">
-    <object class="TDDT.XML_body.Exersise" id="Exersise0">
+    <object class="TDDT.XML_body.Exersise">
      <void property="exersiseName">
       <string>kek</string>
      </void>
      <void property="exersiseText">
       <object class="java.util.ArrayList">
        <void method="add">
-        <string></string>
+        <string>ty</string>
        </void>
       </object>
      </void>
      <void property="testCode">
       <object class="java.util.ArrayList">
        <void method="add">
-        <string>ERSERESR</string>
+        <string>bye</string>
        </void>
       </object>
      </void>
      <void property="writeableCode">
-      <void index="0">
-       <string>SERSRSERS</string>
-      </void>
+      <object class="java.util.ArrayList">
+       <void method="add">
+        <string>hi</string>
+       </void>
+      </object>
      </void>
     </object>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
    </void>
    <void method="add">
     <object class="TDDT.XML_body.Exersise"/>

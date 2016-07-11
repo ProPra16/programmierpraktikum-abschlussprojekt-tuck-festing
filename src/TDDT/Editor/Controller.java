@@ -95,7 +95,7 @@ public class Controller {
         setAllTextFiles(model.getAllTextFiles(code, test, task));
 
         code.getContent().forEach(line -> areaText.appendText(line +"\n"));
-     //   test.getContent().forEach(line -> uneditableAreaText.appendText(line +"\n"));
+        test.getContent().forEach(line -> uneditableAreaText.appendText(line +"\n"));
         task.getContent().forEach(line -> uneditableAreaTask.appendText(line +"\n"));
 
     }
