@@ -46,7 +46,8 @@ public class Controller {
 
     public Controller(){
         model = new Model();
-        model.setAllTextFiles(code, test, task);
+        setAllTextFiles(model.getAllTextFiles(code, test, task));
+     //   System.out.println(""+code.getAsArrayList().get(0));
     }
 
 
@@ -91,10 +92,18 @@ public class Controller {
         areaText.clear();
         uneditableAreaText.clear();
         model = new Model();
-        model.setAllTextFiles(code, test, task);
-        code.getContent().forEach(line -> areaText.appendText(line +"\n"));
-        test.getContent().forEach(line -> uneditableAreaText.appendText(line +"\n"));
+        setAllTextFiles(model.getAllTextFiles(code, test, task));
 
+        code.getContent().forEach(line -> areaText.appendText(line +"\n"));
+     //   test.getContent().forEach(line -> uneditableAreaText.appendText(line +"\n"));
+        task.getContent().forEach(line -> uneditableAreaTask.appendText(line +"\n"));
+
+    }
+    private void setAllTextFiles(ArrayList<TextFile> t)
+    {
+        code = t.get(0);
+        test = t.get(1);
+        task = t.get(2);
     }
 
     @FXML

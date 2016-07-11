@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.List;
 
 /*************************************************
@@ -67,11 +68,15 @@ public class Model {
     Das kann man am besten in der Klasse Wrapper selbst machen, aber vorher soll alles andere gemacht werden,
     da wir die möglichen exceptions erst wissen sollen, damit wir die entsprechende Alarms konfigurieren.
      */
-    public void setAllTextFiles(TextFile code, TextFile test, TextFile task)
+    public ArrayList<TextFile> getAllTextFiles(TextFile code, TextFile test, TextFile task)
     {
-        code = new TextFile(currentExercise.getWriteableCode());
-        test = new TextFile(currentExercise.getTestCode());
-        task = new TextFile(currentExercise.getExersiseText());
+        ArrayList<TextFile> returner = new ArrayList<TextFile>();
+
+        returner.add(new TextFile(currentExercise.getWriteableCode()));
+        returner.add(new TextFile(currentExercise.getTestCode()));
+        returner.add(new TextFile(currentExercise.getExersiseText()));
+        return returner;
+
 
     }
 
