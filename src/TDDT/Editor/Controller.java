@@ -38,11 +38,13 @@ public class Controller {
     private TextFile test;
     private boolean state = true;
     private CompileHelper compileHelper;
+    private IntSenderModel secondModel;
 
 
     private Model model;
 
-    public Controller(){
+    public Controller(IntSenderModel secondModel){
+        this.secondModel = secondModel;
         model = new Model();
         setAllTextFiles(model.getAllTextFiles(code, test, task));
         this.compileHelper = new CompileHelper();

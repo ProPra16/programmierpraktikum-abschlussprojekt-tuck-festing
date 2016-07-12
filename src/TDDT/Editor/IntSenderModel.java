@@ -2,8 +2,6 @@ package TDDT.Editor;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 
 public class IntSenderModel {
     private final IntegerProperty number = new SimpleIntegerProperty();
