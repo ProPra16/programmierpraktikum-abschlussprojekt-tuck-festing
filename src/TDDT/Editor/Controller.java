@@ -1,30 +1,28 @@
 package TDDT.Editor;
 
-import TDDT.XML_body.Exersise;
+import TDDT.Compiler.CompileHelper;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
-import javafx.stage.FileChooser;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 /*
 das ist Controller (Duh) für unsere fxml
  */
 
 public class Controller {
     @FXML
-    private TextArea areaText;                      //das Linke TextArea
+    private TextArea codeArea;                      //das Linke TextArea
 
     @FXML
-    private TextArea uneditableAreaText;            //das rechte obere TextArea
+    private TextArea testArea;            //das rechte obere TextArea
 
     @FXML
-    private TextArea uneditableAreaTask;            //das rechte untere TextArea
+    private TextArea taskArea;            //das rechte untere TextArea
 
+    @FXML
+    private TextArea console;
                   //if true -> TextFiles sind an desssen stellen.
     /*                                             //Das ist für die implimentierung von der
     private ArrayList<String> current = new ArrayList();
@@ -39,6 +37,7 @@ public class Controller {
     private TextFile code;
     private TextFile test;
     private boolean state = true;
+    private CompileHelper compileHelper;
 
 
     private Model model;
@@ -46,30 +45,45 @@ public class Controller {
     public Controller(){
         model = new Model();
         setAllTextFiles(model.getAllTextFiles(code, test, task));
+        this.compileHelper = new CompileHelper();
     }
 
     @FXML
     private void makeStep(){
         if(state) {
             onSaveTest();
-            uneditableAreaText.clear();
-            code.getContent().forEach(line -> uneditableAreaText.appendText(line +"\n"));
 
+            codeArea.clear();
+            code.getContent().forEach(line -> codeArea.appendText(line +"\n"));
 
-            areaText.clear();
-            test.getContent().forEach(line -> areaText.appendText(line +"\n"));
+            testArea.clear();
+            test.getContent().forEach(line -> testArea.appendText(line +"\n"));
 
+            compileHelper.AddSourceClass("Class", codeArea.getText());
+            compileHelper.SetTest("TestClass", testArea.getText());
         }
         else{
             onSaveTest();
-            areaText.clear();
-            code.getContent().forEach(line -> areaText.appendText(line +"\n"));
 
-            uneditableAreaText.clear();
-            test.getContent().forEach(line -> uneditableAreaText.appendText(line +"\n"));
+            testArea.clear();
+            code.getContent().forEach(line -> testArea.appendText(line +"\n"));
 
+            codeArea.clear();
+            test.getContent().forEach(line -> codeArea.appendText(line +"\n"));
+
+            compileHelper.AddSourceClass("Class", testArea.getText());
+            compileHelper.SetTest("TestClass", codeArea.getText());
         }
         this.state = !this.state;
+
+        compileHelper.CompileAndTest();
+        //finish this
+
+        /*if(compileHelper.GetCompilerResult().hasCompileErrors()){
+            compileHelper.GetCompilerResult().getCompilerErrorsForCompilationUnit()
+        }*/
+
+
 
 
     }
@@ -77,15 +91,15 @@ public class Controller {
 
     @FXML
     private void onLoadTask(){ // die Load methode.(muss möglicherweise an den state angepasst werden)
-        areaText.clear();
-        uneditableAreaText.clear();
-        uneditableAreaTask.clear();
+        codeArea.clear();
+        testArea.clear();
+        taskArea.clear();
         model = new Model();
         setAllTextFiles(model.getAllTextFiles(code, test, task));
 
-        code.getContent().forEach(line -> areaText.appendText(line +"\n"));
-        test.getContent().forEach(line -> uneditableAreaText.appendText(line +"\n"));
-        task.getContent().forEach(line -> uneditableAreaTask.appendText(line +"\n"));
+        code.getContent().forEach(line -> codeArea.appendText(line +"\n"));
+        test.getContent().forEach(line -> testArea.appendText(line +"\n"));
+        task.getContent().forEach(line -> taskArea.appendText(line +"\n"));
 
     }
     private void setAllTextFiles(ArrayList<TextFile> t)
@@ -102,18 +116,18 @@ public class Controller {
     private void onSaveTest(){
 
         if(state) {
-            task = new TextFile(Arrays.asList(uneditableAreaTask.getText().split("\n")));
-            code = new TextFile(Arrays.asList(areaText.getText().split("\n")));
-            test = new TextFile(Arrays.asList(uneditableAreaText.getText().split("\n")));
+            task = new TextFile(Arrays.asList(taskArea.getText().split("\n")));
+            code = new TextFile(Arrays.asList(codeArea.getText().split("\n")));
+            test = new TextFile(Arrays.asList(testArea.getText().split("\n")));
             model.getExersise().setWriteableCode(code.getAsArrayList());
             model.getExersise().setTestCode(test.getAsArrayList());
             model.getExersise().setExersiseText(task.getAsArrayList());
             model.saveExersise(0);
         }
         else{
-            task = new TextFile(Arrays.asList(uneditableAreaTask.getText().split("\n")));
-            code = new TextFile(Arrays.asList(uneditableAreaText.getText().split("\n")));
-            test = new TextFile(Arrays.asList(areaText.getText().split("\n")));
+            task = new TextFile(Arrays.asList(taskArea.getText().split("\n")));
+            code = new TextFile(Arrays.asList(testArea.getText().split("\n")));
+            test = new TextFile(Arrays.asList(codeArea.getText().split("\n")));
             model.getExersise().setWriteableCode(code.getAsArrayList());
             model.getExersise().setTestCode(test.getAsArrayList());
             model.getExersise().setExersiseText(task.getAsArrayList());
