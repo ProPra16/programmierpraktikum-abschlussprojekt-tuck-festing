@@ -1,7 +1,4 @@
-
-package Test;
-
-import TDDT.Compiler.CompileHelper;
+import Compiler.CompileHelper;
 import org.junit.Test;
 import vk.core.api.CompilerResult;
 import vk.core.api.TestResult;
@@ -43,11 +40,8 @@ public class CompileHelper_Tests {
 
         compiler.CompileAndTest();
 
-        TestResult tResult = compiler.GetTestResult();
-        CompilerResult cResult = compiler.GetCompilerResult();
-
-        assertEquals(0, tResult.getNumberOfFailedTests());
-        assertEquals(0, tResult.getTestFailures().size());
+        assertEquals(false, compiler.HasCompilerErrors());
+        assertEquals(0, compiler.NumberOfFailedTests());
     }
 
 }

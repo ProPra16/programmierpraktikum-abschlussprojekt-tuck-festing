@@ -1,73 +1,44 @@
-package TDDT.Compiler;
+package Compiler;
 
 
+import jdk.nashorn.internal.codegen.CompileUnit;
 import vk.core.api.*;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  * Created by burba on 30.06.2016.
  */
 public class CompileHelper {
 
-    boolean _changed = true;
     private CompilationUnit _testUnit;
-    private ArrayList<CompilationUnit> _sourceUnits = new ArrayList<CompilationUnit>(1);
+    private CompilationUnit _sourceUnit;
     private JavaStringCompiler _compiler;
+private CompilationUnit _featureTestUnit;
 
     public CompileHelper() {
     }
 
-    public void AddSourceClass(String className, String testClassSource) {
-        RemoveSourceClass(testClassSource);
-        _sourceUnits.add(new CompilationUnit(className, testClassSource, false));
-        _changed = true;
-    }
-
-    public boolean RemoveSourceClass(String className) {
-        int i = 0;
-        for (CompilationUnit unit : _sourceUnits) {
-            if (unit.getClassName().equalsIgnoreCase(className)) {
-                _sourceUnits.remove(0);
-                _changed = true;
-                return true;
-            }
-
-            ++i;
-        }
-
-        return false;
-    }
-
-    public String GetTestClassName() {
-        return _testUnit.getClassName();
-    }
-
-    public String[] SourceClassNames() {
-        String[] result = new String[_sourceUnits.size()];
-
-        for (int i = 0; i < result.length; ++i)
-            result[i] = _sourceUnits.get(i).getClassName();
-
-        return result;
+    public void AddSourceClass(String className, String classSource) {
+        _sourceUnit = new CompilationUnit(className, classSource, false);
     }
 
     public void SetTest(String testClassName, String testClassSource) {
         _testUnit = new CompilationUnit(testClassName, testClassSource, true);
-        _changed = true;
+    }
+
+    public void SetFeatureTest(String feauterTestClassName, String feautretestClassSource){
+_featureTestUnit = new CompilationUnit(feauterTestClassName, feautretestClassSource, true);
     }
 
 
     public void CompileAndTest() {
-        if (_changed) {
-            _sourceUnits.trimToSize();
 
-            ArrayList<CompilationUnit> units = (ArrayList<CompilationUnit>) _sourceUnits.clone();
-            units.add(_testUnit);
-            CompilationUnit[] unitArray = units.toArray(new CompilationUnit[0]);
-            _compiler = CompilerFactory.getCompiler(unitArray);
-            _changed = false;
-        }
+        if(_featureTestUnit != null)
+            _compiler = CompilerFactory.getCompiler(_sourceUnit, _testUnit, _featureTestUnit);
+        else
+            _compiler = CompilerFactory.getCompiler(_sourceUnit, _testUnit);
 
         _compiler.compileAndRunTests();
     }
@@ -79,4 +50,56 @@ public class CompileHelper {
     public CompilerResult GetCompilerResult() {
         return _compiler.getCompilerResult();
     }
+
+    public boolean HasCompilerErrors(){
+        return _compiler.getCompilerResult().hasCompileErrors();
+    }
+
+    public String GetSourceClassCompilerError(){
+                return GetCompileError(_sourceUnit);
+    }
+
+    public String GetTestClassCompilerError(){
+        return GetCompileError(_testUnit);
+    }
+
+    public String GetFeatureTestClassClassCompilerError(){
+        return GetCompileError(_featureTestUnit);
+    }
+
+    private String GetCompileError(CompilationUnit cu){
+        Collection<CompileError> errors = _compiler.getCompilerResult().getCompilerErrorsForCompilationUnit(cu);
+        String result = "";
+
+        for(CompileError error : errors){
+            result += error.toString() + "\n";
+        }
+
+        return result;
+    }
+
+    public int NumberOfFailedTests(){
+        return _compiler.getTestResult().getNumberOfFailedTests();
+    }
+
+    public int NumberOfSucceddfulTests(){
+        return _compiler.getTestResult().getNumberOfSuccessfulTests();
+    }
+
+    public String GetTestFaillures(){
+        Collection<TestFailure> failures =  _compiler.getTestResult().getTestFailures();
+
+        String result = "";
+
+        for(TestFailure failure : failures){
+            result += "\n";
+            result += failure.getTestClassName() + ": " + failure.getMethodName();
+            result += failure.getMessage();
+            result += failure.getExceptionStackTrace();
+            result += "\n";
+        }
+
+        return result;
+    }
+
 }
