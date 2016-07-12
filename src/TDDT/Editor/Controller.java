@@ -81,12 +81,14 @@ public class Controller {
         //finish this
 
         if(compileHelper.HasCompilerErrors()){
-           String codeErrors = ("" + compileHelper.GetSourceClassCompilerError());
-            codeErrors += ("" + compileHelper.GetTestClassCompilerError());
-            // Später vlt Feature class adden.
-            console.appendText(codeErrors);
+            console.appendText(compileHelper.GetCompilerErros());
         }
-
+        else if(compileHelper.NumberOfFailedTests() > 0){
+            console.appendText(compileHelper.GetTestFaillures());
+        }
+        else {
+            console.appendText("Test passed.");
+        }
 
 
 
