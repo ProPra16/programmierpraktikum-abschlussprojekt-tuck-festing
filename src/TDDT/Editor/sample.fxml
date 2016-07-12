@@ -19,11 +19,8 @@
              <items>
 
                  <MenuItem onAction="#makeStep" text="Compile" />
-                 <MenuItem onAction="#onLoadTest" text="LoadTest" />
-                 <MenuItem onAction="#onLoadCode" text="LoadCode" />
-                 <MenuItem onAction="#onLoadTask" text="LoadTask" />
-                 <MenuItem onAction="#onSaveTest" text="SaveTest" />
-                 <MenuItem onAction="#onSaveCode" text="SaveCode" />
+                 <MenuItem onAction="#onLoadTask" text="Load" />
+                 <MenuItem onAction="#onSaveTest" text="Save" />
                  <MenuItem onAction="#onClose" text="Close" />
              </items>
           </Menu>

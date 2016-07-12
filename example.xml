@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.8.0_65" class="java.beans.XMLDecoder">
+<java version="1.8.0_92" class="java.beans.XMLDecoder">
  <object class="TDDT.XML_body.Exersises" id="Exersises0">
   <void property="exersises">
    <void method="add">
@@ -17,7 +17,13 @@
      <void property="testCode">
       <object class="java.util.ArrayList">
        <void method="add">
-        <string>bye</string>
+        <string>test</string>
+       </void>
+       <void method="add">
+        <string>another</string>
+       </void>
+       <void method="add">
+        <string>test2222</string>
        </void>
       </object>
      </void>
@@ -26,9 +32,66 @@
        <void method="add">
         <string>hi</string>
        </void>
+       <void method="add">
+        <string>momomom</string>
+       </void>
+       <void method="add">
+        <string>code1</string>
+       </void>
+       <void method="add">
+        <string>blah</string>
+       </void>
       </object>
      </void>
     </object>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
    </void>
    <void method="add">
     <object class="TDDT.XML_body.Exersise"/>
