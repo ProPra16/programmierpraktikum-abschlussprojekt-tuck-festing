@@ -10,40 +10,148 @@
      <void property="exersiseText">
       <object class="java.util.ArrayList">
        <void method="add">
-        <string>ty</string>
+        <string></string>
        </void>
       </object>
      </void>
      <void property="testCode">
       <object class="java.util.ArrayList">
        <void method="add">
-        <string>test</string>
+        <string>import org.junit.Test;</string>
        </void>
        <void method="add">
-        <string>another</string>
+        <string>import static org.junit.Assert.assertEquals;</string>
        </void>
        <void method="add">
-        <string>test2222</string>
+        <string>public class TestClass{</string>
+       </void>
+       <void method="add">
+        <string>@Test</string>
+       </void>
+       <void method="add">
+        <string>public void testGetTrue(){</string>
+       </void>
+       <void method="add">
+        <string>assertEquals(true, Class.getTrue());</string>
+       </void>
+       <void method="add">
+        <string>}</string>
+       </void>
+       <void method="add">
+        <string>}</string>
        </void>
       </object>
      </void>
      <void property="writeableCode">
       <object class="java.util.ArrayList">
        <void method="add">
-        <string>hi</string>
+        <string>public class Class{</string>
        </void>
        <void method="add">
-        <string>momomom</string>
+        <string>public static boolean getTrue(){</string>
        </void>
        <void method="add">
-        <string>code1</string>
+        <string>return true;</string>
        </void>
        <void method="add">
-        <string>blah</string>
+        <string>}</string>
+       </void>
+       <void method="add">
+        <string>}</string>
        </void>
       </object>
      </void>
     </object>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
    </void>
    <void method="add">
     <object class="TDDT.XML_body.Exersise"/>

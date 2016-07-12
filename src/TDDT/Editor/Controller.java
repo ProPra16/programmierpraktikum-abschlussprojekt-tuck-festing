@@ -54,37 +54,41 @@ public class Controller {
             onSaveTest();
 
             codeArea.clear();
-            code.getContent().forEach(line -> codeArea.appendText(line +"\n"));
+            test.getContent().forEach(line -> codeArea.appendText(line +"\n"));
 
             testArea.clear();
-            test.getContent().forEach(line -> testArea.appendText(line +"\n"));
+            code.getContent().forEach(line -> testArea.appendText(line +"\n"));
 
-            compileHelper.AddSourceClass("Class", codeArea.getText());
-            compileHelper.SetTest("TestClass", testArea.getText());
+            compileHelper.AddSourceClass("Class", testArea.getText());
+            compileHelper.SetTest("TestClass", codeArea.getText());
+            this.state = !this.state;
         }
         else{
             onSaveTest();
 
             testArea.clear();
-            code.getContent().forEach(line -> testArea.appendText(line +"\n"));
+            test.getContent().forEach(line -> testArea.appendText(line +"\n"));
 
             codeArea.clear();
-            test.getContent().forEach(line -> codeArea.appendText(line +"\n"));
+            code.getContent().forEach(line -> codeArea.appendText(line +"\n"));
 
-            compileHelper.AddSourceClass("Class", testArea.getText());
-            compileHelper.SetTest("TestClass", codeArea.getText());
+            compileHelper.AddSourceClass("Class", codeArea.getText());
+            compileHelper.SetTest("TestClass", testArea.getText());
+            this.state = !this.state;
         }
-        this.state = !this.state;
 
         compileHelper.CompileAndTest();
 
         //finish this
 
         if(compileHelper.HasCompilerErrors()){
-           String codeErrors = ("" + compileHelper.GetSourceClassCompilerError());
-            codeErrors += ("" + compileHelper.GetTestClassCompilerError());
-            // Später vlt Feature class adden.
-            console.appendText(codeErrors);
+            console.appendText(compileHelper.GetCompilerErros());
+        }
+        else if(compileHelper.NumberOfFailedTests() > 0){
+            console.appendText(compileHelper.GetTestFaillures());
+        }
+        else {
+            console.appendText("Tests passed.");
         }
 
 
@@ -101,9 +105,10 @@ public class Controller {
         model = new Model();
         setAllTextFiles(model.getAllTextFiles(code, test, task));
 
-        code.getContent().forEach(line -> codeArea.appendText(line +"\n"));
-        test.getContent().forEach(line -> testArea.appendText(line +"\n"));
+        test.getContent().forEach(line -> codeArea.appendText(line +"\n"));
+        code.getContent().forEach(line -> testArea.appendText(line +"\n"));
         task.getContent().forEach(line -> taskArea.appendText(line +"\n"));
+        state = true;
 
     }
     private void setAllTextFiles(ArrayList<TextFile> t)
@@ -121,8 +126,8 @@ public class Controller {
 
         if(state) {
             task = new TextFile(Arrays.asList(taskArea.getText().split("\n")));
-            code = new TextFile(Arrays.asList(codeArea.getText().split("\n")));
-            test = new TextFile(Arrays.asList(testArea.getText().split("\n")));
+            test = new TextFile(Arrays.asList(codeArea.getText().split("\n")));
+            code = new TextFile(Arrays.asList(testArea.getText().split("\n")));
             model.getExersise().setWriteableCode(code.getAsArrayList());
             model.getExersise().setTestCode(test.getAsArrayList());
             model.getExersise().setExersiseText(task.getAsArrayList());
@@ -130,8 +135,8 @@ public class Controller {
         }
         else{
             task = new TextFile(Arrays.asList(taskArea.getText().split("\n")));
-            code = new TextFile(Arrays.asList(testArea.getText().split("\n")));
-            test = new TextFile(Arrays.asList(codeArea.getText().split("\n")));
+            test = new TextFile(Arrays.asList(testArea.getText().split("\n")));
+            code = new TextFile(Arrays.asList(codeArea.getText().split("\n")));
             model.getExersise().setWriteableCode(code.getAsArrayList());
             model.getExersise().setTestCode(test.getAsArrayList());
             model.getExersise().setExersiseText(task.getAsArrayList());
