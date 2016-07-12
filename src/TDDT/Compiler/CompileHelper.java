@@ -84,7 +84,7 @@ _featureTestUnit = new CompilationUnit(feauterTestClassName, feautretestClassSou
         return result;
     }
 
-    private String GetCompilerErros(){
+    public String GetCompilerErros(){
         String result = GetSourceClassCompilerError();
         result += "\n" + GetTestClassCompilerError();
         result += "\n" + GetFeatureTestClassClassCompilerError();
