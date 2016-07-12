@@ -1,3 +1,5 @@
+package Test;
+
 import Compiler.CompileHelper;
 import org.junit.Test;
 import vk.core.api.CompilerResult;

@@ -1,4 +1,4 @@
-package Compiler;
+package TDDT.Compiler;
 
 
 import jdk.nashorn.internal.codegen.CompileUnit;
