@@ -68,13 +68,26 @@ _featureTestUnit = new CompilationUnit(feauterTestClassName, feautretestClassSou
     }
 
     private String GetCompileError(CompilationUnit cu){
+        if(cu == null)
+            return "";
+
         Collection<CompileError> errors = _compiler.getCompilerResult().getCompilerErrorsForCompilationUnit(cu);
+        if(errors == null)
+            return "";
+
         String result = "";
 
         for(CompileError error : errors){
             result += error.toString() + "\n";
         }
 
+        return result;
+    }
+
+    private String GetCompilerErros(){
+        String result = GetSourceClassCompilerError();
+        result += "\n" + GetTestClassCompilerError();
+        result += "\n" + GetFeatureTestClassClassCompilerError();
         return result;
     }
 
