@@ -19,11 +19,11 @@ import java.util.List;
  */
 
 public class Model {
-    Exersise currentExercise;
-    Exersises allExercises;
+    private Exersise currentExercise;
+    private Exersises allExercises;
+    private int index;
 
-
-    public Model()
+    public Model(int index)
     {
         currentExercise = loadExersise();
         //initiateAllTextFiles(currentExercise);
@@ -43,17 +43,18 @@ public class Model {
     {
         return this.currentExercise;
     }
+
     private  Exersise loadExersise()
     {
         // Diese Methode returned immmoment nur die erste Aufgabe später soll
         allExercises = XMLController.loadAllExercises();
-        return allExercises.getExersises().get(0);
+        return allExercises.getExersises().get(index);
         //return XMLController.loadAllExercises().getExersises().get(0);
 
     }
-    public void saveExersise(int index)
+    public void saveExersise()
     {
-        allExercises.getExersises().set(0, currentExercise );
+        allExercises.getExersises().set(index, currentExercise );
         XMLController.saveAllExercises(allExercises);
 
     }

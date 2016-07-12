@@ -45,7 +45,7 @@ public class Controller {
 
     public Controller(IntSenderModel secondModel){
         this.secondModel = secondModel;
-        model = new Model();
+        model = new Model(secondModel.getNumber());
         setAllTextFiles(model.getAllTextFiles(code, test, task));
         this.compileHelper = new CompileHelper();
     }
@@ -104,7 +104,7 @@ public class Controller {
         codeArea.clear();
         testArea.clear();
         taskArea.clear();
-        model = new Model();
+        model = new Model(secondModel.getNumber());
         setAllTextFiles(model.getAllTextFiles(code, test, task));
 
         test.getContent().forEach(line -> codeArea.appendText(line +"\n"));
@@ -133,7 +133,7 @@ public class Controller {
             model.getExersise().setWriteableCode(code.getAsArrayList());
             model.getExersise().setTestCode(test.getAsArrayList());
             model.getExersise().setExersiseText(task.getAsArrayList());
-            model.saveExersise(0);
+            model.saveExersise();
         }
         else{
             task = new TextFile(Arrays.asList(taskArea.getText().split("\n")));
@@ -142,7 +142,7 @@ public class Controller {
             model.getExersise().setWriteableCode(code.getAsArrayList());
             model.getExersise().setTestCode(test.getAsArrayList());
             model.getExersise().setExersiseText(task.getAsArrayList());
-            model.saveExersise(0);
+            model.saveExersise();
         }
     }
 
