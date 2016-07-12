@@ -77,11 +77,15 @@ public class Controller {
         this.state = !this.state;
 
         compileHelper.CompileAndTest();
+
         //finish this
 
-        /*if(compileHelper.GetCompilerResult().hasCompileErrors()){
-            compileHelper.GetCompilerResult().getCompilerErrorsForCompilationUnit()
-        }*/
+        if(compileHelper.HasCompilerErrors()){
+           String codeErrors = ("" + compileHelper.GetSourceClassCompilerError());
+            codeErrors += ("" + compileHelper.GetTestClassCompilerError());
+            // Später vlt Feature class adden.
+            console.appendText(codeErrors);
+        }
 
 
 
