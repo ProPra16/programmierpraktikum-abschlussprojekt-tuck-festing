@@ -105,11 +105,10 @@ _featureTestUnit = new CompilationUnit(feauterTestClassName, feautretestClassSou
         String result = "";
 
         for(TestFailure failure : failures){
-            result += "\n";
-            result += failure.getTestClassName() + ": " + failure.getMethodName();
+            result += failure.getTestClassName() + ": " + failure.getMethodName() + "\n";
             result += failure.getMessage();
-            result += failure.getExceptionStackTrace();
-            result += "\n";
+            //result += failure.getExceptionStackTrace();
+            result += "\n\n";
         }
 
         return result;
