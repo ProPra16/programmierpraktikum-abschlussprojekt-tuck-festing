@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TDDT/TDDT/Compiler/CompileHelper.class" afterPath="$PROJECT_DIR$/out/production/TDDT/TDDT/Compiler/CompileHelper.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TDDT/TDDT/Editor/Controller.class" afterPath="$PROJECT_DIR$/out/production/TDDT/TDDT/Editor/Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TDDT/TDDT/Editor/Model.class" afterPath="$PROJECT_DIR$/out/production/TDDT/TDDT/Editor/Model.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TDDT/TDDT/XML_body/Exersise.class" afterPath="$PROJECT_DIR$/out/production/TDDT/TDDT/XML_body/Exersise.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example.xml" afterPath="$PROJECT_DIR$/example.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TDDT/Editor/Controller.java" afterPath="$PROJECT_DIR$/src/TDDT/Editor/Controller.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TDDT/Editor/Model.java" afterPath="$PROJECT_DIR$/src/TDDT/Editor/Model.java" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,8 +72,8 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-37">
-              <caret line="188" column="58" selection-start-line="188" selection-start-column="58" selection-end-line="188" selection-end-column="58" />
+            <state relative-caret-position="200">
+              <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -80,10 +82,10 @@
       <file leaf-file-name="CompileHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TDDT/Compiler/CompileHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-59">
-              <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state relative-caret-position="308">
+              <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
               <folding>
-                <element signature="e#2639#2640#0" expanded="true" />
+                <element signature="e#3289#3290#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -101,24 +103,14 @@
       </file>
       <file leaf-file-name="sample.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/sample.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="432">
               <caret line="24" column="69" selection-start-line="24" selection-start-column="69" selection-end-line="24" selection-end-column="69" />
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="babysteps.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TDDT/Erweiterungen/babysteps.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-108">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-              <folding />
-            </state>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
@@ -135,8 +127,8 @@
       <file leaf-file-name="XML_Babystep.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TDDT/XML_body/XML_Babystep.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+            <state relative-caret-position="414">
+              <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -166,7 +158,7 @@
         <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/Model.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="360">
-              <caret line="29" column="67" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="67" />
+              <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -217,11 +209,11 @@
         <option value="$PROJECT_DIR$/src/TDDT/Editor/LoadController.java" />
         <option value="$PROJECT_DIR$/src/TDDT/Editor/Main.java" />
         <option value="$PROJECT_DIR$/src/TDDT/Editor/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/TDDT/Editor/Model.java" />
         <option value="$PROJECT_DIR$/example.xml" />
         <option value="$PROJECT_DIR$/src/TDDT/XML_body/XML_Babytep.java" />
         <option value="$PROJECT_DIR$/src/TDDT/XML_body/XML_Babystep.java" />
         <option value="$PROJECT_DIR$/src/TDDT/Editor/Controller.java" />
+        <option value="$PROJECT_DIR$/src/TDDT/Editor/Model.java" />
       </list>
     </option>
   </component>
@@ -269,6 +261,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -410,8 +404,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -452,13 +444,13 @@
     <property name="show.inlinked.gradle.project.popup" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\burba\IdeaProjects\TDDT\src\TDDT\Editor" />
-      <recent name="C:\Users\burba\IdeaProjects\TDDT\src" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\burba\IdeaProjects\TDDT\src\Test" />
       <recent name="C:\Users\burba\IdeaProjects\TDDT\src\TDDT" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\burba\IdeaProjects\TDDT\src\TDDT\Editor" />
+      <recent name="C:\Users\burba\IdeaProjects\TDDT\src" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main_Editor">
@@ -861,11 +853,11 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4027778" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4228395" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21832669" sideWeight="0.6703755" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23027888" sideWeight="0.6703755" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1089,7 +1081,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1106,7 +1097,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="88">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1114,17 +1104,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/sample.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="24" column="69" selection-start-line="24" selection-start-column="69" selection-end-line="24" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -1145,18 +1124,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/Model.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="29" column="67" selection-start-line="29" selection-start-column="67" selection-end-line="29" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/TDDT/XML_body/XML_Babystep.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+        <state relative-caret-position="414">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1177,28 +1148,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/TDDT/Erweiterungen/babysteps.java">
+    <entry file="file://$PROJECT_DIR$/src/TDDT/Erweiterungen/babysteps.java" />
+    <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/sample.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-108">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state relative-caret-position="432">
+          <caret line="24" column="69" selection-start-line="24" selection-start-column="69" selection-end-line="24" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/Model.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="29" column="10" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TDDT/Compiler/CompileHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-59">
-          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state relative-caret-position="308">
+          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
           <folding>
-            <element signature="e#2639#2640#0" expanded="true" />
+            <element signature="e#3289#3290#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-37">
-          <caret line="188" column="58" selection-start-line="188" selection-start-column="58" selection-end-line="188" selection-end-column="58" />
+        <state relative-caret-position="200">
+          <caret line="97" column="0" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
           <folding />
         </state>
       </provider>
