@@ -142,9 +142,17 @@ public class Controller {
             console.clear();
             console.appendText("Tests passed.");
         }
+    }
+    @FXML
+    private void stepBack()
+    {
+        editableArea.clear();
+        test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
 
+        uneditableRightTopArea.clear();
+        code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
 
-
+        state = !state;
 
     }
     @FXML
