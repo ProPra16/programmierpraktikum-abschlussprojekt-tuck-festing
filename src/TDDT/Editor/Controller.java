@@ -9,16 +9,22 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.*;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.CornerRadii;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -57,7 +63,8 @@ public class Controller {
     private CompileHelper compileHelper;
     private IntSenderModel secondModel;
     private Path path;
-
+    String phase;
+    boolean refactorBool;
 
     private Model model;
 
@@ -84,7 +91,6 @@ public class Controller {
         compileHelper.CompileAndTest();
         if(!compileHelper.HasCompilerErrors()){
             if (state) {
-
                 onSave();
 
                 uneditableRightTopArea.clear();
@@ -94,17 +100,28 @@ public class Controller {
                 code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
 
                 this.state = !this.state;
+
+                editableArea.setStyle("-fx-background-color: green");
             }
             else{
-                onSave();
+                if(editableArea.getStyle() == "-fx-background-color: green" && refactorBool){
+                    if(compileHelper.NumberOfFailedTests() == 0)
+                        editableArea.setStyle("-fx-background-color: gray");
+                }
+                else {
+                    onSave();
 
-                editableArea.clear();
-                test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+                    editableArea.clear();
+                    test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
 
-                uneditableRightTopArea.clear();
-                code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+                    uneditableRightTopArea.clear();
+                    code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
 
-                this.state = !this.state;
+                    this.state = !this.state;
+
+                    editableArea.setStyle("-fx-background-color: red");
+                    refactorBool = true;
+                }
             }
 
         }
@@ -116,12 +133,18 @@ public class Controller {
             console.appendText(compileHelper.GetTestFaillures());
         }
         else {
+            console.clear();
             console.appendText("Tests passed.");
         }
 
 
 
 
+    }
+    @FXML
+    private void onRefactor(){
+        refactorBool = false;
+        makeStep();
     }
 
 
@@ -140,7 +163,8 @@ public class Controller {
         code.getContent().forEach(line -> uneditableRightTopArea.appendText(line +"\n"));
         task.getContent().forEach(line -> uneditableRightBottomArea.appendText(line +"\n"));
         state = true;
-
+        refactorBool = true;
+        editableArea.setStyle("-fx-background-color: red");
     }
 
     private void getExersice(){
