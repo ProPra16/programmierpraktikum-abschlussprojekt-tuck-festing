@@ -11,6 +11,26 @@ public class Exersise {
      ArrayList<String> testCode;
      ArrayList<String> writeableCode;
      ArrayList<String>  exersiseText;
+    int BabyStepsTimer;
+    Boolean enableBabySteps;
+
+    public Boolean getEnableBabySteps() {
+        return enableBabySteps;
+    }
+
+    public void setEnableBabySteps(Boolean enableBabySteps) {
+        this.enableBabySteps = enableBabySteps;
+    }
+
+    public int getBabyStepsTimer() {
+
+        return BabyStepsTimer;
+    }
+
+    public void setBabyStepsTimer(int babyStepsTimer) {
+        BabyStepsTimer = babyStepsTimer;
+    }
+
     //May add Constructors for the extensions
     public Exersise()
     {
