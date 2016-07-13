@@ -1,12 +1,26 @@
 package TDDT.Editor;
 
 import TDDT.Compiler.CompileHelper;
+import TDDT.XML_body.Exersise;
+import TDDT.XML_body.Exersises;
+import TDDT.XML_body.XMLController;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Observable;
 /*
 das ist Controller (Duh) für unsere fxml
  */
@@ -43,12 +57,15 @@ public class Controller {
 
     private Model model;
 
-    public Controller(IntSenderModel secondModel){
-        this.secondModel = secondModel;
+    public Controller(){
+        secondModel = new IntSenderModel();
+        getExersice();
         model = new Model(secondModel.getNumber());
         setAllTextFiles(model.getAllTextFiles(code, test, task));
         this.compileHelper = new CompileHelper();
     }
+
+
 
     @FXML
     private void makeStep(){
@@ -101,9 +118,12 @@ public class Controller {
 
     @FXML
     private void onLoadTask(){ // die Load methode.(muss möglicherweise an den state angepasst werden)
+
+
         codeArea.clear();
         testArea.clear();
         taskArea.clear();
+        getExersice();
         model = new Model(secondModel.getNumber());
         setAllTextFiles(model.getAllTextFiles(code, test, task));
 
@@ -113,6 +133,39 @@ public class Controller {
         state = true;
 
     }
+
+    private void getExersice(){
+        Exersises allExersises = XMLController.loadAllExercises();
+        ObservableList<String> list = FXCollections.observableArrayList();
+        for(Exersise e: allExersises.getExersises()){
+            list.add(e.getExersiseName());
+        }
+        ListView<String> listView = new ListView<>(list);
+
+        GridPane pane = new GridPane();
+        pane.add(listView, 0, 0);
+        Button button = new Button();
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                if(!listView.getSelectionModel().isEmpty()) {
+                    secondModel.setNumber(listView.getSelectionModel().getSelectedIndex());
+                    Node source = (Node) event.getSource();
+                    Stage locStage = (Stage) source.getScene().getWindow();
+                    locStage.close();
+                }
+            }
+        });
+        pane.add(button, 1, 0);
+
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(pane));
+        stage.showAndWait();
+
+
+    }
+
     private void setAllTextFiles(ArrayList<TextFile> t)
     {
         code = t.get(0);
