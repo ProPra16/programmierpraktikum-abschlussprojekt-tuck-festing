@@ -57,6 +57,8 @@
        </void>
       </object>
      </void>
+     <void property ="BabyStepsTimer"> <int> 80 </int></void>
+
     </object>
    </void>
    <void method="add">

@@ -67,6 +67,7 @@ public class Controller {
     private IntSenderModel secondModel;
     private Path path;
     String phase;
+    int modeState = 0;
     boolean refactorBool;
 
     private Model model;
@@ -82,6 +83,7 @@ public class Controller {
 
     @FXML
     private void makeStep(){
+
         if(state) {
             compileHelper.AddSourceClass("Class", uneditableRightTopArea.getText());
             compileHelper.SetTest("TestClass", editableArea.getText());
@@ -144,15 +146,17 @@ public class Controller {
         }
     }
     @FXML
-    private void stepBack()
+    public void stepBack()
     {
-        editableArea.clear();
-        test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+        if(modeState == 1) {
+            editableArea.clear();
+            test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
 
-        uneditableRightTopArea.clear();
-        code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
-
-        state = !state;
+            uneditableRightTopArea.clear();
+            code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+            modeState--;
+            state = !state;
+        }
 
     }
     @FXML

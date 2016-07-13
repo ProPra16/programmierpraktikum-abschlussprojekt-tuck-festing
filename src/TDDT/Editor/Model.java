@@ -27,6 +27,7 @@ public class Model {
     {
         this.index = index;
         currentExercise = loadExersise();
+        System.out.println(""+currentExercise.getBabyStepsTimer());
         //initiateAllTextFiles(currentExercise);
 
     }
