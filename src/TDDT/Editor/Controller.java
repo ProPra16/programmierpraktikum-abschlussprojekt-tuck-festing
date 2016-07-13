@@ -4,20 +4,28 @@ import TDDT.Compiler.CompileHelper;
 import TDDT.XML_body.Exersise;
 import TDDT.XML_body.Exersises;
 import TDDT.XML_body.XMLController;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
+import java.io.File;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Observable;
@@ -53,6 +61,7 @@ public class Controller {
     private boolean state = true;
     private CompileHelper compileHelper;
     private IntSenderModel secondModel;
+    private Path path;
 
 
     private Model model;
@@ -142,9 +151,8 @@ public class Controller {
         }
         ListView<String> listView = new ListView<>(list);
 
-        GridPane pane = new GridPane();
-        pane.add(listView, 0, 0);
-        Button button = new Button();
+
+        Button button = new Button("OK");
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -156,11 +164,31 @@ public class Controller {
                 }
             }
         });
-        pane.add(button, 1, 0);
+        Button pathButton = new Button("Select new XML");
+        pathButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                FileChooser chooser = new FileChooser();
+                chooser.setInitialDirectory(new File("./"));
+                File file = chooser.showOpenDialog(null);
+                if(file != null)
+                    path = file.toPath();
+            }
+        });
 
+        button.setMinWidth(100);
+        button.setPrefWidth(100);
+        button.setMaxWidth(100);
+
+        BorderPane pane = new BorderPane();
+        pane.setCenter(button);
+        pane.setBottom(pathButton);
+        BorderPane bp = new BorderPane();
+        bp.setLeft(listView);
+        bp.setRight(pane);
 
         Stage stage = new Stage();
-        stage.setScene(new Scene(pane));
+        stage.setScene(new Scene(bp));
         stage.showAndWait();
 
 

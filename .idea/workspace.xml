@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/TDDT/Editor/LoadController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/TDDT/Editor/load.fxml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TDDT/TDDT/Editor/Controller.class" afterPath="$PROJECT_DIR$/out/production/TDDT/TDDT/Editor/Controller.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TDDT/TDDT/Editor/Main.class" afterPath="$PROJECT_DIR$/out/production/TDDT/TDDT/Editor/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TDDT/TDDT/Editor/sample.fxml" afterPath="$PROJECT_DIR$/out/production/TDDT/TDDT/Editor/sample.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TDDT/Editor/Controller.java" afterPath="$PROJECT_DIR$/src/TDDT/Editor/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TDDT/Editor/Main.java" afterPath="$PROJECT_DIR$/src/TDDT/Editor/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TDDT/Editor/sample.fxml" afterPath="$PROJECT_DIR$/src/TDDT/Editor/sample.fxml" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,8 +68,8 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="185">
-              <caret line="146" column="37" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
+            <state relative-caret-position="270">
+              <caret line="174" column="20" selection-start-line="174" selection-start-column="20" selection-end-line="174" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -1143,8 +1136,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="146" column="37" selection-start-line="146" selection-start-column="37" selection-end-line="146" selection-end-column="37" />
+        <state relative-caret-position="270">
+          <caret line="174" column="20" selection-start-line="174" selection-start-column="20" selection-end-line="174" selection-end-column="20" />
           <folding />
         </state>
       </provider>
