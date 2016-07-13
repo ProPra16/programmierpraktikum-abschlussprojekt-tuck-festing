@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -8,8 +9,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 
-<BorderPane fx:controller="TDDT.Editor.Controller" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TDDT.Editor.Controller">
    <top>
+       <BorderPane>
+           <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu text="File">
@@ -18,7 +21,7 @@
                  <MenuItem onAction="#makeStep" text="Compile" />
                  <MenuItem onAction="#onLoad" text="Load" />
                  <MenuItem onAction="#onSave" text="Save" />
-                 <MenuItem onAction="#onRefactor" text = "Refactor Done" />
+                 <MenuItem onAction="#onRefactor" text="Refactor Done" />
                  <MenuItem onAction="#onClose" text="Close" />
              </items>
           </Menu>
@@ -29,6 +32,14 @@
           </Menu>
         </menus>
       </MenuBar>
+           </top>
+           <bottom>
+               
+           </bottom>
+         <right>
+            <Label fx:id="babystepsLabel" text="timer" BorderPane.alignment="CENTER" />
+         </right>
+       </BorderPane>
    </top>
    <center>
       <TextArea fx:id="editableArea" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
@@ -38,12 +49,12 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <TextArea AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="uneditableRightTopArea" layoutX="-1.0" layoutY="-1.0" prefHeight="160.0" prefWidth="267.0" />
+                  <TextArea fx:id="uneditableRightTopArea" layoutX="-1.0" layoutY="-1.0" prefHeight="160.0" prefWidth="267.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <TextArea AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="uneditableRightBottomArea" prefHeight="160.0" prefWidth="268.0" />
+                  <TextArea fx:id="uneditableRightBottomArea" prefHeight="160.0" prefWidth="268.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
         </items>
@@ -54,10 +65,10 @@
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <padding>
-                  <Insets top="0" right="0" left="0" bottom="0"/>
+                  <Insets bottom="0" left="0" right="0" top="0" />
               </padding>
                <children>
-                  <TextArea fx:id="console" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" prefHeight="200.0" prefWidth="200.0" />
+                  <TextArea fx:id="console" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
         </content>

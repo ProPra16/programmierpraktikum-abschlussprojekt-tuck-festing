@@ -13,9 +13,9 @@ import javafx.geometry.*;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -36,7 +36,10 @@ das ist Controller (Duh) für unsere fxml
 
 public class Controller {
     @FXML
-    private TextArea editableArea;                      //das Linke TextArea
+    private TextArea editableArea;
+
+    @FXML
+    private Label babystepsLabel;
 
     @FXML
     private TextArea uneditableRightTopArea;            //das rechte obere TextArea
@@ -91,6 +94,7 @@ public class Controller {
         compileHelper.CompileAndTest();
         if(!compileHelper.HasCompilerErrors()){
             if (state) {
+
                 onSave();
 
                 uneditableRightTopArea.clear();
