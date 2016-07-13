@@ -16,8 +16,8 @@
              <items>
 
                  <MenuItem onAction="#makeStep" text="Compile" />
-                 <MenuItem onAction="#onLoadTask" text="Load" />
-                 <MenuItem onAction="#onSaveTest" text="Save" />
+                 <MenuItem onAction="#onLoad" text="Load" />
+                 <MenuItem onAction="#onSave" text="Save" />
                  <MenuItem onAction="#onClose" text="Close" />
              </items>
           </Menu>
@@ -30,19 +30,19 @@
       </MenuBar>
    </top>
    <center>
-      <TextArea fx:id="codeArea" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+      <TextArea fx:id="editableArea" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
    </center>
    <right>
       <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="328.0" prefWidth="268.0" BorderPane.alignment="CENTER">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <TextArea AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="testArea" layoutX="-1.0" layoutY="-1.0" prefHeight="160.0" prefWidth="267.0" />
+                  <TextArea AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="uneditableRightTopArea" layoutX="-1.0" layoutY="-1.0" prefHeight="160.0" prefWidth="267.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <TextArea AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="taskArea" prefHeight="160.0" prefWidth="268.0" />
+                  <TextArea AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" fx:id="uneditableRightBottomArea" prefHeight="160.0" prefWidth="268.0" />
                </children>
             </AnchorPane>
         </items>

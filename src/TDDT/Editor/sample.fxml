@@ -16,8 +16,8 @@
              <items>
 
                  <MenuItem onAction="#makeStep" text="Compile" />
-                 <MenuItem onAction="#onLoadTask" text="Load" />
-                 <MenuItem onAction="#onSaveTest" text="Save" />
+                 <MenuItem onAction="#onLoad" text="Load" />
+                 <MenuItem onAction="#onSave" text="Save" />
                  <MenuItem onAction="#onClose" text="Close" />
              </items>
           </Menu>

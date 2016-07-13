@@ -23,6 +23,7 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 /*
 das ist Controller (Duh) für unsere fxml
  */
@@ -72,35 +73,41 @@ public class Controller {
     @FXML
     private void makeStep(){
         if(state) {
-            onSaveTest();
-
-            editableArea.clear();
-            test.getContent().forEach(line -> editableArea.appendText(line +"\n"));
-
-            uneditableRightTopArea.clear();
-            code.getContent().forEach(line -> uneditableRightTopArea.appendText(line +"\n"));
-
             compileHelper.AddSourceClass("Class", uneditableRightTopArea.getText());
             compileHelper.SetTest("TestClass", editableArea.getText());
-            this.state = !this.state;
         }
         else{
-            onSaveTest();
-
-            uneditableRightTopArea.clear();
-            test.getContent().forEach(line -> uneditableRightTopArea.appendText(line +"\n"));
-
-            editableArea.clear();
-            code.getContent().forEach(line -> editableArea.appendText(line +"\n"));
-
             compileHelper.AddSourceClass("Class", editableArea.getText());
             compileHelper.SetTest("TestClass", uneditableRightTopArea.getText());
-            this.state = !this.state;
         }
 
         compileHelper.CompileAndTest();
+        if(!compileHelper.HasCompilerErrors()){
+            if (state) {
 
-        //finish this
+                onSave();
+
+                uneditableRightTopArea.clear();
+                test.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+
+                editableArea.clear();
+                code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+
+                this.state = !this.state;
+            }
+            else{
+                onSave();
+
+                editableArea.clear();
+                test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+
+                uneditableRightTopArea.clear();
+                code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+
+                this.state = !this.state;
+            }
+
+        }
 
         if(compileHelper.HasCompilerErrors()){
             console.appendText(compileHelper.GetCompilerErros());
@@ -119,7 +126,7 @@ public class Controller {
 
 
     @FXML
-    private void onLoadTask(){ // die Load methode.(muss möglicherweise an den state angepasst werden)
+    private void onLoad(){ // die Load methode.(muss möglicherweise an den state angepasst werden)
 
 
         editableArea.clear();
@@ -200,7 +207,7 @@ public class Controller {
 
 
     @FXML
-    private void onSaveTest(){
+    private void onSave(){
 
         if(state) {
             task = new TextFile(Arrays.asList(uneditableRightBottomArea.getText().split("\n")));
