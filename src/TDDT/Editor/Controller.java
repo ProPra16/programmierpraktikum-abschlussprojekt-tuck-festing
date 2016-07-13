@@ -119,6 +119,8 @@ public class Controller {
                     code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
                     editableArea.setStyle("-fx-background-color: green");
                     phaseSetter = 1;
+
+                    //  Hier sollte Baby steps hin.
                 }
                 else if(compileHelper.NumberOfFailedTests() == 1)
                 {
@@ -133,6 +135,7 @@ public class Controller {
                     code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
                     editableArea.setStyle("-fx-background-color: green");
                     phaseSetter = 1;
+                    //  Hier sollte Baby steps hin. 
                 }
                 else {
                     if (compileHelper.NumberOfFailedTests() == 0)
