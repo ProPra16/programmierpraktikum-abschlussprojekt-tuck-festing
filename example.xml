@@ -303,6 +303,15 @@
    <void method="add">
     <object class="TDDT.XML_body.Exersise"/>
    </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
   </void>
  </object>
 </java>

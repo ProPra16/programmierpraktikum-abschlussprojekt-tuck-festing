@@ -104,7 +104,9 @@ public class Controller {
                 editableArea.setStyle("-fx-background-color: green");
             }
             else{
-                if(editableArea.getStyle() == "-fx-background-color: green" && refactorBool){
+                if((    editableArea.getStyle() == "-fx-background-color: green" ||
+                        editableArea.getStyle() == "-fx-background-color: gray")
+                        && refactorBool){
                     if(compileHelper.NumberOfFailedTests() == 0)
                         editableArea.setStyle("-fx-background-color: gray");
                 }
