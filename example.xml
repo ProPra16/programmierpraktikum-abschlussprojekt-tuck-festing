@@ -14,42 +14,11 @@
        </void>
       </object>
      </void>
+     <void property="state">
+      <int>1</int>
+     </void>
      <void property="testCode">
       <object class="java.util.ArrayList">
-       <void method="add">
-        <string>public class Class{</string>
-       </void>
-       <void method="add">
-        <string>public static boolean getTrue(){</string>
-       </void>
-       <void method="add">
-        <string>return true;</string>
-       </void>
-       <void method="add">
-        <string>}</string>
-       </void>
-       <void method="add">
-        <string>public static boolean getFalse()</string>
-       </void>
-       <void method="add">
-        <string>{</string>
-       </void>
-       <void method="add">
-        <string>return false;</string>
-       </void>
-       <void method="add">
-        <string>}</string>
-       </void>
-       <void method="add">
-        <string>}</string>
-       </void>
-      </object>
-     </void>
-     <void property="writeableCode">
-      <object class="java.util.ArrayList">
-       <void method="add">
-        <string></string>
-       </void>
        <void method="add">
         <string>import org.junit.Test;</string>
        </void>
@@ -84,11 +53,93 @@
         <string>}</string>
        </void>
        <void method="add">
+        <string>@Test</string>
+       </void>
+       <void method="add">
+        <string>public void testGetTwo(){</string>
+       </void>
+       <void method="add">
+        <string>assertEquals(3, Class.getTwo());</string>
+       </void>
+       <void method="add">
+        <string>}</string>
+       </void>
+       <void method="add">
+        <string>}</string>
+       </void>
+      </object>
+     </void>
+     <void property="writeableCode">
+      <object class="java.util.ArrayList">
+       <void method="add">
+        <string>public class Class{</string>
+       </void>
+       <void method="add">
+        <string>public static boolean getTrue(){</string>
+       </void>
+       <void method="add">
+        <string>return true;</string>
+       </void>
+       <void method="add">
+        <string>}</string>
+       </void>
+       <void method="add">
+        <string>public static boolean getFalse()</string>
+       </void>
+       <void method="add">
+        <string>{</string>
+       </void>
+       <void method="add">
+        <string>return false;</string>
+       </void>
+       <void method="add">
+        <string>}</string>
+       </void>
+       <void method="add">
+        <string>public static int getTwo()</string>
+       </void>
+       <void method="add">
+        <string>{</string>
+       </void>
+       <void method="add">
+        <string>return 2;</string>
+       </void>
+       <void method="add">
+        <string>}</string>
+       </void>
+       <void method="add">
         <string>}</string>
        </void>
       </object>
      </void>
     </object>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
+   </void>
+   <void method="add">
+    <object class="TDDT.XML_body.Exersise"/>
    </void>
    <void method="add">
     <object class="TDDT.XML_body.Exersise"/>

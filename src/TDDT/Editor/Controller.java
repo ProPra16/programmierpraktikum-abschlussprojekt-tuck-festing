@@ -70,6 +70,7 @@ public class Controller {
         model = new Model(secondModel.getNumber());
         setAllTextFiles(model.getAllTextFiles(code, test, task));
         this.compileHelper = new CompileHelper();
+
     }
 
 
@@ -275,7 +276,7 @@ public class Controller {
 
 
     @FXML
-    private void onLoad(){ // die Load methode.(muss möglicherweise an den state angepasst werden)
+    private void onLoad() { // die Load methode.(muss möglicherweise an den state angepasst werden)
 
 
         editableArea.clear();
@@ -284,15 +285,29 @@ public class Controller {
         getExersice();
         model = new Model(secondModel.getNumber());
         setAllTextFiles(model.getAllTextFiles(code, test, task));
-
-        test.getContent().forEach(line -> editableArea.appendText(line +"\n"));
-        code.getContent().forEach(line -> uneditableRightTopArea.appendText(line +"\n"));
-        task.getContent().forEach(line -> uneditableRightBottomArea.appendText(line +"\n"));
         phase = model.getExersise().getState();
         state = true;
-        phase = 0;
+        setColorAccordingToPhase();
         refactorBool = true;
-        editableArea.setStyle("-fx-background-color: red");
+
+        if (phase == 0)
+        {
+            test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+            code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+            task.getContent().forEach(line -> uneditableRightBottomArea.appendText(line + "\n"));
+        }
+        else{
+            code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+            test.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+            task.getContent().forEach(line -> uneditableRightBottomArea.appendText(line + "\n"));
+        }
+
+    }
+    private void setColorAccordingToPhase()
+    {
+        if(phase == 0) editableArea.setStyle("-fx-background-color: red");
+        else if(phase == 1) editableArea.setStyle("-fx-background-color: green");
+        else  editableArea.setStyle("-fx-background-color: gray");
     }
 
     private void getExersice(){
@@ -378,6 +393,7 @@ public class Controller {
             model.getExersise().setWriteableCode(code.getAsArrayList());
             model.getExersise().setTestCode(test.getAsArrayList());
             model.getExersise().setExersiseText(task.getAsArrayList());
+            model.getExersise().setState(phase);
             model.saveExersise();
         }
     }
