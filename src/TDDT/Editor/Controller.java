@@ -68,7 +68,6 @@ public class Controller {
 
     public Controller(){
         secondModel = new IntSenderModel();
-        getExersice();
         model = new Model(secondModel.getNumber());
         setAllTextFiles(model.getAllTextFiles(code, test, task));
         this.compileHelper = new CompileHelper();
@@ -147,7 +146,8 @@ public class Controller {
         Exersises allExersises = XMLController.loadAllExercises();
         ObservableList<String> list = FXCollections.observableArrayList();
         for(Exersise e: allExersises.getExersises()){
-            list.add(e.getExersiseName());
+            if(e.getExersiseName() != null)
+                list.add(e.getExersiseName());
         }
         ListView<String> listView = new ListView<>(list);
 
@@ -161,6 +161,7 @@ public class Controller {
                     Node source = (Node) event.getSource();
                     Stage locStage = (Stage) source.getScene().getWindow();
                     locStage.close();
+
                 }
             }
         });

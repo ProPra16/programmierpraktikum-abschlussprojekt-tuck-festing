@@ -25,6 +25,7 @@ public class Model {
 
     public Model(int index)
     {
+        this.index = index;
         currentExercise = loadExersise();
         //initiateAllTextFiles(currentExercise);
 
