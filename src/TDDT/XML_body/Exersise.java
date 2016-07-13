@@ -11,24 +11,24 @@ public class Exersise {
      ArrayList<String> testCode;
      ArrayList<String> writeableCode;
      ArrayList<String>  exersiseText;
-    int BabyStepsTimer;
-    Boolean enableBabySteps;
+    XML_Babystep babystep;
+    int state;
 
-    public Boolean getEnableBabySteps() {
-        return enableBabySteps;
+    public XML_Babystep getBabystep() {
+        return babystep;
     }
 
-    public void setEnableBabySteps(Boolean enableBabySteps) {
-        this.enableBabySteps = enableBabySteps;
+    public void setBabystep(XML_Babystep babystep) {
+        this.babystep = babystep;
     }
 
-    public int getBabyStepsTimer() {
+    public int getState() {
 
-        return BabyStepsTimer;
+        return state;
     }
 
-    public void setBabyStepsTimer(int babyStepsTimer) {
-        BabyStepsTimer = babyStepsTimer;
+    public void setState(int state) {
+        this.state = state;
     }
 
     //May add Constructors for the extensions

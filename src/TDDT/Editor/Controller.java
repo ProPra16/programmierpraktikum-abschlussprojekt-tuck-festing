@@ -298,6 +298,7 @@ public class Controller {
         test.getContent().forEach(line -> editableArea.appendText(line +"\n"));
         code.getContent().forEach(line -> uneditableRightTopArea.appendText(line +"\n"));
         task.getContent().forEach(line -> uneditableRightBottomArea.appendText(line +"\n"));
+        modeState = model.getExersise().getState();
         state = true;
         phase = 0;
         refactorBool = true;
@@ -377,6 +378,7 @@ public class Controller {
             model.getExersise().setWriteableCode(code.getAsArrayList());
             model.getExersise().setTestCode(test.getAsArrayList());
             model.getExersise().setExersiseText(task.getAsArrayList());
+            model.getExersise().setState(modeState);
             model.saveExersise();
         }
         else{
