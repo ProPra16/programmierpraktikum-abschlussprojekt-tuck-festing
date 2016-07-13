@@ -9,27 +9,20 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.geometry.*;
-import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.CornerRadii;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.File;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 /*
 das ist Controller (Duh) für unsere fxml
  */
@@ -66,8 +59,8 @@ public class Controller {
     private CompileHelper compileHelper;
     private IntSenderModel secondModel;
     private Path path;
-    int phase;
-    int modeState = 0;
+
+    int phase = 0;
     boolean refactorBool;
 
     private Model model;
@@ -83,7 +76,7 @@ public class Controller {
 
     @FXML
     private void makeStep(){
-
+        int phaseSetter = 0; // Dieser phaseSetter wird benutzt um die Phasen zu setzen da wenn man diese erhöht das nächsthöhere if-Event sonst getriggered wird.
         if(phase%3 == 0) {
             compileHelper.AddSourceClass("Class", uneditableRightTopArea.getText());
             compileHelper.SetTest("TestClass", editableArea.getText());
@@ -95,121 +88,115 @@ public class Controller {
 
         compileHelper.CompileAndTest();
 
-        if(phase%3 == 0 && (compileHelper.NumberOfFailedTests() == 0 || compileHelper.NumberOfFailedTests() > 1)){
-            editableArea.setStyle("-fx-background-color: red");
-
-            console.clear();
-
-            if(compileHelper.HasCompilerErrors()){
-                console.appendText(compileHelper.GetCompilerErros());
-            }
-            else if(compileHelper.NumberOfFailedTests() > 0){
-                console.appendText(compileHelper.GetTestFaillures());
-            }
-            else {
-                if(compileHelper.NumberOfFailedTests() == 0)
-                    console.appendText("Mind. ein Test muss fehlschlagen!");
-                if(compileHelper.NumberOfFailedTests() > 1)
-                    console.appendText("Nur ein Test soll fehlschlagen!");
-            }
-
-        }
-        if(phase%3 == 0 && compileHelper.NumberOfFailedTests() == 1){
-            onSave();
-
-            uneditableRightTopArea.clear();
-            test.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
-
-            editableArea.clear();
-            code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
-            editableArea.setStyle("-fx-background-color: green");
-            phase = 1;
-
-            console.clear();
-            if(compileHelper.HasCompilerErrors()){
-                console.appendText(compileHelper.GetCompilerErros());
-            }
-            else if(compileHelper.NumberOfFailedTests() > 0){
-                console.appendText(compileHelper.GetTestFaillures());
-            }
-
-        }
-
-        if(phase%3 == 1){
-            if(compileHelper.NumberOfFailedTests() > 0 || compileHelper.HasCompilerErrors()){
-                console.clear();
-                if(compileHelper.HasCompilerErrors()){
-                    console.appendText(compileHelper.GetCompilerErros());
-                }
-                else if(compileHelper.NumberOfFailedTests() > 0){
-                    console.appendText(compileHelper.GetTestFaillures());
-                }
-                else {
-                    console.appendText("Tests passed.");
-                }
-
-                editableArea.setStyle("-fx-background-color: green");
-                phase = 1;
-
-            }
-            if(compileHelper.NumberOfFailedTests() == 0 && !compileHelper.HasCompilerErrors()){
-                console.clear();
-                if(compileHelper.HasCompilerErrors()){
-                    console.appendText(compileHelper.GetCompilerErros());
-                }
-                else if(compileHelper.NumberOfFailedTests() > 0){
-                    console.appendText(compileHelper.GetTestFaillures());
-                }
-                else {
-                    console.appendText("Tests passed.");
-                }
-                onSave();
-
-                editableArea.setStyle("-fx-background-color: gray");
-                phase = 2;
-            }
-        }
-        if(phase%3 == 2){
-            if(compileHelper.NumberOfFailedTests() > 0 || compileHelper.HasCompilerErrors()){
-                console.clear();
-                if(compileHelper.HasCompilerErrors()){
-                    console.appendText(compileHelper.GetCompilerErros());
-                }
-                else if(compileHelper.NumberOfFailedTests() > 0){
-                    console.appendText(compileHelper.GetTestFaillures());
-                }
-                else {
-                    console.appendText("Tests passed.");
-                }
-
-                editableArea.setStyle("-fx-background-color: gray");
-                phase = 2;
-
-            }
-            if(compileHelper.NumberOfFailedTests() == 0 && !compileHelper.HasCompilerErrors()){
-                console.clear();
-                if(compileHelper.HasCompilerErrors()){
-                    console.appendText(compileHelper.GetCompilerErros());
-                }
-                else if(compileHelper.NumberOfFailedTests() > 0){
-                    console.appendText(compileHelper.GetTestFaillures());
-                }
-                else {
-                    console.appendText("Tests passed.");
-                }
-
+         /*   if (compileHelper.GetTestClassCompilerError() == null || phase % 3 == 0 && compileHelper.NumberOfFailedTests() != 1 ) {
                 editableArea.setStyle("-fx-background-color: red");
-                phase = 0;
 
-                onSave();
+                console.clear();
 
-                editableArea.clear();
-                test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+                 if (compileHelper.NumberOfFailedTests() > 0) {
 
-                uneditableRightTopArea.clear();
-                code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+                    console.appendText(compileHelper.GetTestFaillures());
+                } else {
+                    if (compileHelper.NumberOfFailedTests() == 0)
+                        console.appendText("Mind. ein Test muss fehlschlagen!");
+                    if (compileHelper.NumberOfFailedTests() > 1)
+                        console.appendText("Nur ein Test soll fehlschlagen!");
+                }
+
+            }*/
+            if (phase % 3 == 0 && compileHelper.GetTestClassCompilerError() != null) {
+
+                if (compileHelper.HasCompilerErrors()) {
+                    onSave();
+                    console.clear();
+                    console.appendText(compileHelper.GetCompilerErros());
+
+                    uneditableRightTopArea.clear();
+                    test.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+
+                    editableArea.clear();
+                    code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+                    editableArea.setStyle("-fx-background-color: green");
+                    phaseSetter = 1;
+                }
+                else if(compileHelper.NumberOfFailedTests() == 1)
+                {
+                    onSave();
+                    console.clear();
+                    console.appendText(compileHelper.GetTestFaillures());
+
+                    uneditableRightTopArea.clear();
+                    test.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+
+                    editableArea.clear();
+                    code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+                    editableArea.setStyle("-fx-background-color: green");
+                    phaseSetter = 1;
+                }
+                else {
+                    if (compileHelper.NumberOfFailedTests() == 0)
+                        console.appendText("Mind. ein Test muss fehlschlagen!");
+                    if (compileHelper.NumberOfFailedTests() > 1)
+                        console.appendText("Nur ein Test soll fehlschlagen!");
+                }
+
+
             }
-        }
+
+            if (phase % 3 == 1) {
+                if (compileHelper.HasCompilerErrors()) {
+                    editableArea.setStyle("-fx-background-color: green");
+                    onSave();
+                    console.clear();
+                    console.appendText(compileHelper.GetCompilerErros());
+                    phaseSetter = 1;
+                }
+                else if (compileHelper.NumberOfFailedTests() > 0 ) {
+                    editableArea.setStyle("-fx-background-color: green");
+                    onSave();
+                    console.clear();
+                    console.appendText(compileHelper.GetTestFaillures());
+                    phaseSetter = 1;
+                }
+                else {
+                    console.clear();
+                    editableArea.setStyle("-fx-background-color: gray");
+                    phaseSetter = 2;
+                    console.appendText("Tests passed.");
+                }
+            }
+
+
+
+            if (phase % 3 == 2) {
+
+                    if (compileHelper.HasCompilerErrors()) {
+                        console.appendText(compileHelper.GetCompilerErros());
+                        editableArea.setStyle("-fx-background-color: gray");
+                        phaseSetter = 2;
+                    } else if (compileHelper.NumberOfFailedTests() > 0) {
+                        console.appendText(compileHelper.GetTestFaillures());
+                        editableArea.setStyle("-fx-background-color: gray");
+                        phaseSetter = 2;
+                    }
+                    else if (compileHelper.NumberOfFailedTests() == 0 ) {
+                    console.clear();
+                        console.appendText("Tests passed.");
+                        editableArea.setStyle("-fx-background-color: red");
+                    phaseSetter = 0;
+
+                    onSave();
+
+                    editableArea.clear();
+                    test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+
+                    uneditableRightTopArea.clear();
+                    code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+                }
+
+            }
+        phase = phaseSetter;
+        System.out.print("");
 
         /*
         if(!compileHelper.HasCompilerErrors()){
@@ -266,14 +253,17 @@ public class Controller {
     @FXML
     public void stepBack()
     {
-        if(modeState == 1) {
+        if(phase == 1) {
             editableArea.clear();
             test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
 
             uneditableRightTopArea.clear();
             code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
-            modeState--;
-            state = !state;
+            editableArea.setStyle("-fx-background-color: red");
+
+            console.clear();
+            phase = 0;
+
         }
 
     }
@@ -298,7 +288,7 @@ public class Controller {
         test.getContent().forEach(line -> editableArea.appendText(line +"\n"));
         code.getContent().forEach(line -> uneditableRightTopArea.appendText(line +"\n"));
         task.getContent().forEach(line -> uneditableRightBottomArea.appendText(line +"\n"));
-        modeState = model.getExersise().getState();
+        phase = model.getExersise().getState();
         state = true;
         phase = 0;
         refactorBool = true;
@@ -378,7 +368,7 @@ public class Controller {
             model.getExersise().setWriteableCode(code.getAsArrayList());
             model.getExersise().setTestCode(test.getAsArrayList());
             model.getExersise().setExersiseText(task.getAsArrayList());
-            model.getExersise().setState(modeState);
+            model.getExersise().setState(phase);
             model.saveExersise();
         }
         else{
