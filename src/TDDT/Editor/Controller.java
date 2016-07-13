@@ -66,7 +66,7 @@ public class Controller {
     private CompileHelper compileHelper;
     private IntSenderModel secondModel;
     private Path path;
-    String phase;
+    int phase;
     int modeState = 0;
     boolean refactorBool;
 
@@ -84,7 +84,7 @@ public class Controller {
     @FXML
     private void makeStep(){
 
-        if(state) {
+        if(phase%3 == 0) {
             compileHelper.AddSourceClass("Class", uneditableRightTopArea.getText());
             compileHelper.SetTest("TestClass", editableArea.getText());
         }
@@ -94,6 +94,124 @@ public class Controller {
         }
 
         compileHelper.CompileAndTest();
+
+        if(phase%3 == 0 && (compileHelper.NumberOfFailedTests() == 0 || compileHelper.NumberOfFailedTests() > 1)){
+            editableArea.setStyle("-fx-background-color: red");
+
+            console.clear();
+
+            if(compileHelper.HasCompilerErrors()){
+                console.appendText(compileHelper.GetCompilerErros());
+            }
+            else if(compileHelper.NumberOfFailedTests() > 0){
+                console.appendText(compileHelper.GetTestFaillures());
+            }
+            else {
+                if(compileHelper.NumberOfFailedTests() == 0)
+                    console.appendText("Mind. ein Test muss fehlschlagen!");
+                if(compileHelper.NumberOfFailedTests() > 1)
+                    console.appendText("Nur ein Test soll fehlschlagen!");
+            }
+
+        }
+        if(phase%3 == 0 && compileHelper.NumberOfFailedTests() == 1){
+            onSave();
+
+            uneditableRightTopArea.clear();
+            test.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+
+            editableArea.clear();
+            code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+            editableArea.setStyle("-fx-background-color: green");
+            phase = 1;
+
+            console.clear();
+            if(compileHelper.HasCompilerErrors()){
+                console.appendText(compileHelper.GetCompilerErros());
+            }
+            else if(compileHelper.NumberOfFailedTests() > 0){
+                console.appendText(compileHelper.GetTestFaillures());
+            }
+
+        }
+
+        if(phase%3 == 1){
+            if(compileHelper.NumberOfFailedTests() > 0 || compileHelper.HasCompilerErrors()){
+                console.clear();
+                if(compileHelper.HasCompilerErrors()){
+                    console.appendText(compileHelper.GetCompilerErros());
+                }
+                else if(compileHelper.NumberOfFailedTests() > 0){
+                    console.appendText(compileHelper.GetTestFaillures());
+                }
+                else {
+                    console.appendText("Tests passed.");
+                }
+
+                editableArea.setStyle("-fx-background-color: green");
+                phase = 1;
+
+            }
+            if(compileHelper.NumberOfFailedTests() == 0 && !compileHelper.HasCompilerErrors()){
+                console.clear();
+                if(compileHelper.HasCompilerErrors()){
+                    console.appendText(compileHelper.GetCompilerErros());
+                }
+                else if(compileHelper.NumberOfFailedTests() > 0){
+                    console.appendText(compileHelper.GetTestFaillures());
+                }
+                else {
+                    console.appendText("Tests passed.");
+                }
+                onSave();
+
+                editableArea.setStyle("-fx-background-color: gray");
+                phase = 2;
+            }
+        }
+        if(phase%3 == 2){
+            if(compileHelper.NumberOfFailedTests() > 0 || compileHelper.HasCompilerErrors()){
+                console.clear();
+                if(compileHelper.HasCompilerErrors()){
+                    console.appendText(compileHelper.GetCompilerErros());
+                }
+                else if(compileHelper.NumberOfFailedTests() > 0){
+                    console.appendText(compileHelper.GetTestFaillures());
+                }
+                else {
+                    console.appendText("Tests passed.");
+                }
+
+                editableArea.setStyle("-fx-background-color: gray");
+                phase = 2;
+
+            }
+            if(compileHelper.NumberOfFailedTests() == 0 && !compileHelper.HasCompilerErrors()){
+                console.clear();
+                if(compileHelper.HasCompilerErrors()){
+                    console.appendText(compileHelper.GetCompilerErros());
+                }
+                else if(compileHelper.NumberOfFailedTests() > 0){
+                    console.appendText(compileHelper.GetTestFaillures());
+                }
+                else {
+                    console.appendText("Tests passed.");
+                }
+
+                editableArea.setStyle("-fx-background-color: red");
+                phase = 0;
+
+                onSave();
+
+                editableArea.clear();
+                test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+
+                uneditableRightTopArea.clear();
+                code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+            }
+        }
+
+        /*
         if(!compileHelper.HasCompilerErrors()){
             if (state) {
 
@@ -143,7 +261,7 @@ public class Controller {
         else {
             console.clear();
             console.appendText("Tests passed.");
-        }
+        }*/
     }
     @FXML
     public void stepBack()
@@ -181,6 +299,7 @@ public class Controller {
         code.getContent().forEach(line -> uneditableRightTopArea.appendText(line +"\n"));
         task.getContent().forEach(line -> uneditableRightBottomArea.appendText(line +"\n"));
         state = true;
+        phase = 0;
         refactorBool = true;
         editableArea.setStyle("-fx-background-color: red");
     }
@@ -251,7 +370,7 @@ public class Controller {
     @FXML
     private void onSave(){
 
-        if(state) {
+        if(phase%3 == 0) {
             task = new TextFile(Arrays.asList(uneditableRightBottomArea.getText().split("\n")));
             test = new TextFile(Arrays.asList(editableArea.getText().split("\n")));
             code = new TextFile(Arrays.asList(uneditableRightTopArea.getText().split("\n")));
