@@ -16,7 +16,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -24,6 +27,8 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import static javafx.scene.paint.Color.RED;
 /*
 das ist Controller (Duh) für unsere fxml
  */
@@ -31,6 +36,9 @@ das ist Controller (Duh) für unsere fxml
 public class Controller {
     @FXML
     private TextArea editableArea;
+
+    @FXML
+    private Label aTDDLabel;
 
     @FXML
     private TitledPane consoleTitle;
@@ -83,6 +91,7 @@ public class Controller {
     @FXML
     private void makeStep() {
         consoleTitle.setText("");
+        //aTDDLabel.setStyle("-fx-background-color: red;");
         int phaseSetter = 0; // Dieser phaseSetter wird benutzt um die Phasen zu setzen da wenn man diese erhöht das nächsthöhere if-Event sonst getriggered wird.
         if(phase%3 == 0) {
             compileHelper.AddSourceClass("Class", uneditableRightTopArea.getText());
