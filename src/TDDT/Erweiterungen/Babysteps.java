@@ -60,7 +60,7 @@ class Task extends TimerTask {
 
         if (seconds == 0) {
             this.cancel();
-            windowControler.stepBack();
+            Platform.runLater(() -> windowControler.stepBack());
         }
     }
 }
