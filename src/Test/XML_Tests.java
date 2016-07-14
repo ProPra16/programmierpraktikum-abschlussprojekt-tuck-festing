@@ -15,12 +15,13 @@ public class XML_Tests {
     @Before
     public void createSomeXMLObject()
     {
-        allExersises = new Exersises();
+       /* allExersises = new Exersises();
         Exersise exersise = new Exersise();
         exersise.setExersiseName("kek");
         ArrayList<Exersise> exersiseList = new ArrayList<Exersise>();
         exersiseList.add(exersise);
         allExersises.setExersises(exersiseList);
+        */
     }
     @Test
     public  void test() {

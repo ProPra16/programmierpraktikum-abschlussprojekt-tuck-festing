@@ -4,8 +4,8 @@ import javafx.scene.control.Label;
 
 public class ATDD {
 
-    numberoffailedfeaturetests();
-    numberfailedtests();
+    //numberoffailedfeaturetests();
+    //numberfailedtests();
 
     public int checkForSwap( int phase, int Afails, int fails) {
 

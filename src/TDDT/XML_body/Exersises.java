@@ -11,10 +11,14 @@ public class Exersises {
     public Exersises(){
         //Cant construct this body in Code
     }
-    public void createExersise()
+    public void addExercise(Exersise e)
+    {
+        exersises.add(e);
+    }
+    /*public void createExersise()
     {
         exersises.add(new Exersise());
-    }
+    }*/
 
     public ArrayList<Exersise> getExersises() {
         return exersises;
