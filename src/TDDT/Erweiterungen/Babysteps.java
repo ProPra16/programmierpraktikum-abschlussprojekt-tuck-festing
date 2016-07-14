@@ -24,7 +24,7 @@ public class Babysteps {
 
     public void Start() {
         if (!isRunning) {
-            //timer.schedule(task, 0, 1000);
+            timer.schedule(task, 0, 1000);
 
             isRunning = true;
         }
