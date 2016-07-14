@@ -100,7 +100,7 @@ public class CompileHelper {
     }
 
     public int NumberOfFailedTests() {
-        return _compiler.getTestResult().getNumberOfFailedTests();
+        return CountFailedFeatureTest(_testUnit);
     }
 
     public int NumberOfSucceddfulTests() {
@@ -122,4 +122,22 @@ public class CompileHelper {
         return result;
     }
 
+    public int NumberOfFailedFeatureTest(){
+        return CountFailedFeatureTest(_featureTestUnit);
+    }
+
+    private int CountFailedFeatureTest(CompilationUnit cu){
+        if(cu == null || _compiler.getTestResult().getNumberOfFailedTests() == 0)
+            return 0;
+
+        int result = 0;
+
+        Collection<TestFailure> failures = _compiler.getTestResult().getTestFailures();
+
+        for (TestFailure failure : failures)
+            if(failure.getTestClassName().equalsIgnoreCase(cu.getClassName()))
+                ++result;
+
+        return result;
+    }
 }
