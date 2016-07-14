@@ -1,6 +1,7 @@
 package TDDT.Editor;
 
 import TDDT.Compiler.CompileHelper;
+import TDDT.Erweiterungen.Babysteps;
 import TDDT.XML_body.Exersise;
 import TDDT.XML_body.Exersises;
 import TDDT.XML_body.XMLController;
@@ -42,7 +43,7 @@ public class Controller {
 
     @FXML
     private TextArea console;
-                  //if true -> TextFiles sind an desssen stellen.
+    //if true -> TextFiles sind an desssen stellen.
     /*                                             //Das ist für die implimentierung von der
     private ArrayList<String> current = new ArrayList();
     private ArrayList<String> task = new ArrayList();
@@ -59,6 +60,7 @@ public class Controller {
     private CompileHelper compileHelper;
     private IntSenderModel secondModel;
     private Path path;
+    private Babysteps babysteps;
 
     int phase = 0;
     boolean refactorBool;
@@ -76,7 +78,7 @@ public class Controller {
 
 
     @FXML
-    private void makeStep(){
+    private void makeStep() {
         int phaseSetter = 0; // Dieser phaseSetter wird benutzt um die Phasen zu setzen da wenn man diese erhöht das nächsthöhere if-Event sonst getriggered wird.
         if(phase%3 == 0) {
             compileHelper.AddSourceClass("Class", uneditableRightTopArea.getText());
@@ -105,100 +107,103 @@ public class Controller {
                 }
 
             }*/
-            if (phase % 3 == 0 && compileHelper.GetTestClassCompilerError() != null) {
+        if (phase % 3 == 0 && compileHelper.GetTestClassCompilerError() != null) {
 
-                if (compileHelper.HasCompilerErrors()) {
-                    onSave();
-                    console.clear();
-                    console.appendText(compileHelper.GetCompilerErros());
+            if (compileHelper.HasCompilerErrors()) {
+                onSave();
+                console.clear();
+                console.appendText(compileHelper.GetCompilerErros());
 
-                    uneditableRightTopArea.clear();
-                    test.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+                uneditableRightTopArea.clear();
+                test.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
 
-                    editableArea.clear();
-                    code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
-                    editableArea.setStyle("-fx-background-color: green");
-                    phaseSetter = 1;
+                editableArea.clear();
+                code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+                editableArea.setStyle("-fx-background-color: green");
+                phaseSetter = 1;
 
-                    //  Hier sollte Baby steps hin.
-                }
-                else if(compileHelper.NumberOfFailedTests() == 1)
-                {
-                    onSave();
-                    console.clear();
-                    console.appendText(compileHelper.GetTestFaillures());
-
-                    uneditableRightTopArea.clear();
-                    test.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
-
-                    editableArea.clear();
-                    code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
-                    editableArea.setStyle("-fx-background-color: green");
-                    phaseSetter = 1;
-                    //  Hier sollte Baby steps hin. 
-                }
-                else {
-                    if (compileHelper.NumberOfFailedTests() == 0)
-                        console.appendText("Mind. ein Test muss fehlschlagen!");
-                    if (compileHelper.NumberOfFailedTests() > 1)
-                        console.appendText("Nur ein Test soll fehlschlagen!");
-                }
-
-
+                StartBabysteps();
             }
+            else if(compileHelper.NumberOfFailedTests() == 1)
+            {
+                onSave();
+                console.clear();
+                console.appendText(compileHelper.GetTestFaillures());
 
-            if (phase % 3 == 1) {
-                if (compileHelper.HasCompilerErrors()) {
-                    editableArea.setStyle("-fx-background-color: green");
-                    onSave();
-                    console.clear();
-                    console.appendText(compileHelper.GetCompilerErros());
-                    phaseSetter = 1;
-                }
-                else if (compileHelper.NumberOfFailedTests() > 0 ) {
-                    editableArea.setStyle("-fx-background-color: green");
-                    onSave();
-                    console.clear();
-                    console.appendText(compileHelper.GetTestFaillures());
-                    phaseSetter = 1;
-                }
-                else {
-                    console.clear();
-                    editableArea.setStyle("-fx-background-color: gray");
-                    phaseSetter = 2;
-                    console.appendText("Tests passed.");
-                }
+                uneditableRightTopArea.clear();
+                test.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+
+                editableArea.clear();
+                code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+                editableArea.setStyle("-fx-background-color: green");
+                phaseSetter = 1;
+
+                StartBabysteps();
+            }
+            else {
+                if (compileHelper.NumberOfFailedTests() == 0)
+                    console.appendText("Mind. ein Test muss fehlschlagen!");
+                if (compileHelper.NumberOfFailedTests() > 1)
+                    console.appendText("Nur ein Test soll fehlschlagen!");
             }
 
 
+        }
 
-            if (phase % 3 == 2) {
-
-                    if (compileHelper.HasCompilerErrors()) {
-                        console.appendText(compileHelper.GetCompilerErros());
-                        editableArea.setStyle("-fx-background-color: gray");
-                        phaseSetter = 2;
-                    } else if (compileHelper.NumberOfFailedTests() > 0) {
-                        console.appendText(compileHelper.GetTestFaillures());
-                        editableArea.setStyle("-fx-background-color: gray");
-                        phaseSetter = 2;
-                    }
-                    else if (compileHelper.NumberOfFailedTests() == 0 ) {
-                    console.clear();
-                        console.appendText("Tests passed.");
-                        editableArea.setStyle("-fx-background-color: red");
-                    phaseSetter = 0;
-
-                    onSave();
-
-                    editableArea.clear();
-                    test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
-
-                    uneditableRightTopArea.clear();
-                    code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
-                }
-
+        if (phase % 3 == 1) {
+            if (compileHelper.HasCompilerErrors()) {
+                editableArea.setStyle("-fx-background-color: green");
+                onSave();
+                console.clear();
+                console.appendText(compileHelper.GetCompilerErros());
+                phaseSetter = 1;
             }
+            else if (compileHelper.NumberOfFailedTests() > 0 ) {
+                editableArea.setStyle("-fx-background-color: green");
+                onSave();
+                console.clear();
+                console.appendText(compileHelper.GetTestFaillures());
+                phaseSetter = 1;
+            }
+            else {
+                console.clear();
+                editableArea.setStyle("-fx-background-color: gray");
+                phaseSetter = 2;
+                console.appendText("Tests passed.");
+
+                babysteps.Stop();
+            }
+        }
+
+
+
+        if (phase % 3 == 2) {
+
+            if (compileHelper.HasCompilerErrors()) {
+                console.appendText(compileHelper.GetCompilerErros());
+                editableArea.setStyle("-fx-background-color: gray");
+                phaseSetter = 2;
+            } else if (compileHelper.NumberOfFailedTests() > 0) {
+                console.appendText(compileHelper.GetTestFaillures());
+                editableArea.setStyle("-fx-background-color: gray");
+                phaseSetter = 2;
+            }
+            else if (compileHelper.NumberOfFailedTests() == 0 ) {
+                console.clear();
+                console.appendText("Tests passed.");
+                editableArea.setStyle("-fx-background-color: red");
+                phaseSetter = 0;
+
+                onSave();
+
+                editableArea.clear();
+                test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+
+                uneditableRightTopArea.clear();
+                code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+            }
+
+        }
         phase = phaseSetter;
         System.out.print("");
 
@@ -403,7 +408,10 @@ public class Controller {
 
     @FXML
     private void onClose(){
-            System.exit(0);
+        if(babysteps != null && babysteps.Running())
+        babysteps.Stop();
+
+        System.exit(0);
     }
     @FXML
     private void onAbout(){
@@ -412,6 +420,12 @@ public class Controller {
         alert.setTitle("About");
         alert.setContentText("This is an about menu");
         alert.show();
+    }
+
+    private void StartBabysteps(){
+            babysteps = new Babysteps(10, this, babystepsLabel);
+
+        babysteps.Start();
     }
 
 }
