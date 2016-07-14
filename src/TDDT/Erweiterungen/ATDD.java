@@ -1,25 +1,40 @@
 package TDDT.Erweiterungen;
 
+import javafx.scene.control.Label;
+
 public class ATDD {
 
-    private boolean test = false;
-    private boolean code = false;
-    private int fails;
+    numberoffailedfeaturetests();
+    numberfailedtests();
 
-    public boolean checkForSwap(int fails, boolean state) {
+    public int checkForSwap( int phase, int Afails, int fails) {
 
-        if (state == true) {
+        if (phase == 3 && fails == 1)
+            phase=0;
 
-            if (fails == 1) {
-                code = true;
-                return code;
-            } else {
-                if (fails > 1) {
-                    test = true;
-                    return test;
-                }
-            }
-        }
-        return false;
+        if (phase == 3 && fails == 1)
+            phase=1;
+
+        if (phase == 0 && fails == 1)
+            phase=1;
+
+        if (phase == 0 && fails == 1)
+            phase=1;
+
+        if (phase == 0 && fails == 1)
+            phase=1;
+
+        if (phase == 0 && fails == 1)
+            phase=1;
+
+        if (phase == 0 && fails == 1)
+            phase=1;
+
+
+        return phase;
     }
+    public Label labelMode(Label aTDDlabel){
+        return aTDDlabel;
+    }
+
 }
