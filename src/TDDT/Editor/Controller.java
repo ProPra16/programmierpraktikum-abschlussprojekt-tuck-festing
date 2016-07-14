@@ -33,6 +33,9 @@ public class Controller {
     private TextArea editableArea;
 
     @FXML
+    private TitledPane consoleTitle;
+
+    @FXML
     private Label babystepsLabel;
 
     @FXML
@@ -79,6 +82,7 @@ public class Controller {
 
     @FXML
     private void makeStep() {
+        consoleTitle.setText("");
         int phaseSetter = 0; // Dieser phaseSetter wird benutzt um die Phasen zu setzen da wenn man diese erhöht das nächsthöhere if-Event sonst getriggered wird.
         if(phase%3 == 0) {
             compileHelper.AddSourceClass("Class", uneditableRightTopArea.getText());
@@ -107,12 +111,15 @@ public class Controller {
                 }
 
             }*/
+
         if (phase % 3 == 0 && compileHelper.GetTestClassCompilerError() != null) {
 
             if (compileHelper.HasCompilerErrors()) {
                 onSave();
                 console.clear();
                 console.appendText(compileHelper.GetCompilerErros());
+                console.positionCaret(1);
+                consoleTitle.setText("Compiler");
 
                 uneditableRightTopArea.clear();
                 test.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
@@ -129,6 +136,8 @@ public class Controller {
                 onSave();
                 console.clear();
                 console.appendText(compileHelper.GetTestFaillures());
+                console.positionCaret(1);
+                consoleTitle.setText("Tests");
 
                 uneditableRightTopArea.clear();
                 test.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
@@ -143,8 +152,12 @@ public class Controller {
             else {
                 if (compileHelper.NumberOfFailedTests() == 0)
                     console.appendText("Mind. ein Test muss fehlschlagen!");
+                    console.positionCaret(1);
+                    consoleTitle.setText("Tests");
                 if (compileHelper.NumberOfFailedTests() > 1)
                     console.appendText("Nur ein Test soll fehlschlagen!");
+                    console.positionCaret(1);
+                    consoleTitle.setText("Tests");
             }
 
 
@@ -156,6 +169,8 @@ public class Controller {
                 onSave();
                 console.clear();
                 console.appendText(compileHelper.GetCompilerErros());
+                console.positionCaret(1);
+                consoleTitle.setText("Compiler");
                 phaseSetter = 1;
             }
             else if (compileHelper.NumberOfFailedTests() > 0 ) {
@@ -163,13 +178,17 @@ public class Controller {
                 onSave();
                 console.clear();
                 console.appendText(compileHelper.GetTestFaillures());
+                console.positionCaret(1);
+                consoleTitle.setText("Tests");
                 phaseSetter = 1;
             }
             else {
                 console.clear();
                 editableArea.setStyle("-fx-background-color: gray");
                 phaseSetter = 2;
+                consoleTitle.setText("Tests");
                 console.appendText("Tests passed.");
+                console.positionCaret(1);
 
                 babysteps.Stop();
             }
@@ -181,16 +200,22 @@ public class Controller {
 
             if (compileHelper.HasCompilerErrors()) {
                 console.appendText(compileHelper.GetCompilerErros());
+                console.positionCaret(1);
+                consoleTitle.setText("Compiler");
                 editableArea.setStyle("-fx-background-color: gray");
                 phaseSetter = 2;
             } else if (compileHelper.NumberOfFailedTests() > 0) {
+                consoleTitle.setText("Tests");
                 console.appendText(compileHelper.GetTestFaillures());
+                console.positionCaret(1);
                 editableArea.setStyle("-fx-background-color: gray");
                 phaseSetter = 2;
             }
             else if (compileHelper.NumberOfFailedTests() == 0 ) {
+                consoleTitle.setText("Tests");
                 console.clear();
                 console.appendText("Tests passed.");
+                console.positionCaret(1);
                 editableArea.setStyle("-fx-background-color: red");
                 phaseSetter = 0;
 
@@ -286,7 +311,6 @@ public class Controller {
     @FXML
     private void onLoad() { // die Load methode.(muss möglicherweise an den state angepasst werden)
 
-
         editableArea.clear();
         uneditableRightTopArea.clear();
         uneditableRightBottomArea.clear();
@@ -298,6 +322,9 @@ public class Controller {
         setColorAccordingToPhase();
         refactorBool = true;
 
+        if(phase == 1){
+            StartBabysteps();
+        }
         if (phase == 0)
         {
             test.getContent().forEach(line -> editableArea.appendText(line + "\n"));

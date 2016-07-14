@@ -38,7 +38,7 @@
                
            </bottom>
          <right>
-            <Label fx:id="babystepsLabel" text="timer" BorderPane.alignment="CENTER" />
+            <Label fx:id="babystepsLabel" text="" BorderPane.alignment="CENTER" />
          </right>
        </BorderPane>
    </top>
@@ -62,14 +62,14 @@
       </SplitPane>
    </right>
    <bottom>
-      <TitledPane animated="false" prefHeight="98.0" prefWidth="600.0" text="untitled" BorderPane.alignment="CENTER">
+      <TitledPane fx:id="consoleTitle" animated="false" prefHeight="98.0" prefWidth="600.0" text="" BorderPane.alignment="CENTER">
         <content>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <padding>
                   <Insets bottom="0" left="0" right="0" top="0" />
               </padding>
                <children>
-                  <TextArea fx:id="console" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <TextArea fx:id="console" editable="false" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
         </content>
