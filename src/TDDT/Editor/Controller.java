@@ -16,11 +16,16 @@ import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
+import javafx.stage.Modality;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -356,6 +361,8 @@ public class Controller {
 
     private void getExersice(){
         Exersises allExersises = XMLController.loadAllExercises();
+
+        Stage stage = new Stage();
         ObservableList<String> list = FXCollections.observableArrayList();
         for(Exersise e: allExersises.getExersises()){
             if(e.getExersiseName() != null)
@@ -388,7 +395,21 @@ public class Controller {
                     path = file.toPath();
             }
         });
-
+        pathButton.addEventHandler(MouseEvent.MOUSE_ENTERED,
+                new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent event) {
+                        pathButton.setStyle("-fx-background-color: red");
+                        final Stage dialog = new Stage();
+                        dialog.initModality(Modality.APPLICATION_MODAL);
+                        dialog.initOwner(stage);
+                        VBox dialogVbox = new VBox(20);
+                        dialogVbox.getChildren().add(new Text("This feature is not implemented"));
+                        Scene dialogScene = new Scene(dialogVbox, 300, 200);
+                        dialog.setScene(dialogScene);
+                        dialog.show();
+                    }
+                });
         button.setMinWidth(100);
         button.setPrefWidth(100);
         button.setMaxWidth(100);
@@ -400,7 +421,6 @@ public class Controller {
         bp.setLeft(listView);
         bp.setRight(pane);
 
-        Stage stage = new Stage();
         stage.setScene(new Scene(bp));
         stage.showAndWait();
 
