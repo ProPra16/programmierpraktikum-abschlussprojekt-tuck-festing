@@ -17,10 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
@@ -72,6 +69,7 @@ public class Controller {
     private TextFile task;
     private TextFile code;
     private TextFile test;
+    private TextFile atddt;
     private boolean state = true;
     private CompileHelper compileHelper;
     private IntSenderModel secondModel;
@@ -302,6 +300,30 @@ public class Controller {
             console.clear();
             console.appendText("Tests passed.");
         }*/
+    }
+
+    @FXML
+    public void onATDDT(){
+        Stage stage = new Stage();
+        stage.setTitle("ATDDT");
+        TextArea textArea = new TextArea();
+        GridPane pane = new GridPane();
+        Button button = new Button("Done");
+        button.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                atddt = new TextFile(Arrays.asList(textArea.getText().split("\n")));
+                for(String s: atddt.getContent()){
+                    System.out.println(s);
+                }
+                stage.close();
+            }
+        });
+        pane.add(textArea, 0, 0);
+        pane.add(button, 1, 1);
+        stage.setScene(new Scene(pane));
+        stage.show();
+
     }
     @FXML
     public void stepBack()
