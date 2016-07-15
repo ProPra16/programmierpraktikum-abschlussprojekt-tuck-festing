@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<exercises>
+    <exercise>
+        <exerciseName>
+            Test Name
+        </exerciseName>
+        <class>
+            public class Class
+            {
+            //Hier Code adden
+            }
+        </class>
+        <testClass>
+            import org.junit.Test;
+            import static org.junit.Assert.assertEquals;
+            public class TestClass{
+            @Test
+            public void testGetTrue(){
+            assertEquals(true, Class.getTrue());
+            }
+            @Test
+            public void testGetTruetoo(){
+            assertEquals(false, Class.getFalse());
+            }
+            @Test
+            public void testGetTwo(){
+            assertEquals(3, Class.getTwo());
+            }
+            }
+        </testClass>
+        <exerciseText>
+            Das ist auch ein Text
+        </exerciseText>
+        <state>0</state>
+        <enableBabySteps>true</enableBabySteps>
+        <BabyStepTimer>60</BabyStepTimer>
+
+    </exercise>
+    <exercise>
+        <exerciseName>
+            Other Name
+        </exerciseName>
+        <class>
+            public class Class
+            {
+            //Hier Code adden
+            }
+        </class>
+        <testClass>
+            import org.junit.Test;
+            import static org.junit.Assert.assertEquals;
+            public class TestClass{
+            @Test
+            public void testGetTrue(){
+            assertEquals(true, Class.getTrue());
+            }
+            @Test
+            public void testGetTruetoo(){
+            assertEquals(false, Class.getFalse());
+            }
+            @Test
+            public void testGetTwo(){
+            assertEquals(3, Class.getTwo());
+            }
+            }
+        </testClass>
+        <exerciseText>
+            Hier gehört der Aufgaben text hin.
+        </exerciseText>
+        <state>0</state>
+        <enableBabySteps>true</enableBabySteps>
+        <BabyStepTimer>60</BabyStepTimer>
+
+    </exercise>
+
+
+</exercises>

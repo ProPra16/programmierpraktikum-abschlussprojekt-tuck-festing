@@ -39,7 +39,33 @@ public class Exersise {
         this.BabyStepsTimer = Integer.parseInt(BabyStepsTimer);
 
     }
-    public String 
+    public String getTestCodeAsString()
+    {
+        String returner = "";
+        for(String t : testCode)
+        {
+            returner += t + "\n";
+        }
+        return returner;
+    }
+    public String getCodeAsString()
+    {
+        String returner = "";
+        for(String t : writeableCode)
+        {
+            returner += t + "\n";
+        }
+        return returner;
+    }
+    public String getExerciseTextAsString()
+    {
+        String returner = "";
+        for(String t : exersiseText)
+        {
+            returner += t + "\n";
+        }
+        return returner;
+    }
     private ArrayList<String> getToArray(String t)
     {
         ArrayList<String> test = new ArrayList<String>();

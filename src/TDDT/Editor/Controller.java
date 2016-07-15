@@ -459,8 +459,10 @@ public class Controller {
     }
 
     private void StartBabysteps(){
-        babysteps = new Babysteps(10, this, babystepsLabel);
-        babysteps.Start();
+        if(model.isBabystepsEnabled()) {
+            babysteps = new Babysteps(model.getBabyStepTimer(), this, babystepsLabel);
+            babysteps.Start();
+        }
     }
 
 }
