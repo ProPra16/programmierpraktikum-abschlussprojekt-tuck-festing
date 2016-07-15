@@ -203,7 +203,10 @@ public class GameOfLife {
 
         
             
-</class><testClass>
+</class>
+    <enableATTD>true</enableATTD>
+    <ATTD> Hier Akzeptanztests schreiben.</ATTD>
+    <testClass>
 import static org.junit.Assert.*;
 
 import org.junit.Test;
