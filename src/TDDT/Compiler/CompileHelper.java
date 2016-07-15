@@ -38,7 +38,7 @@ public class CompileHelper {
         else if (_sourceUnit != null && _testUnit != null)
             _compiler = CompilerFactory.getCompiler(_sourceUnit, _testUnit);
         else if (_sourceUnit != null && _featureTestUnit != null)
-            _compiler = CompilerFactory.getCompiler(_sourceUnit, _testUnit);
+            _compiler = CompilerFactory.getCompiler(_sourceUnit, _featureTestUnit);
         else if (_testUnit != null && _featureTestUnit != null)
             _compiler = CompilerFactory.getCompiler(_featureTestUnit, _testUnit);
         else if (_featureTestUnit != null)
@@ -46,7 +46,7 @@ public class CompileHelper {
         else if (_testUnit != null)
             _compiler = CompilerFactory.getCompiler(_testUnit);
         else if (_sourceUnit != null)
-            _compiler = CompilerFactory.getCompiler(_featureTestUnit);
+            _compiler = CompilerFactory.getCompiler(_sourceUnit);
         
         _compiler.compileAndRunTests();
     }
