@@ -1,8 +1,7 @@
-group 'Tuck Festing'
-version '1.0'
+group 'TDDT'
+version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
-apply plugin: 'application'
 
 sourceCompatibility = 1.8
 
@@ -11,6 +10,6 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile 'de.hhu.stups:virtual-kata-lib:+'
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile 'de.hhu.stups:virtual-kata-lib:1.0.+'
 }
