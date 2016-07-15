@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/TDDT/TDDT/Editor/Controller.class" afterPath="$PROJECT_DIR$/out/production/TDDT/TDDT/Editor/Controller.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -62,29 +65,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="525">
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8316">
-              <caret line="411" column="19" selection-start-line="411" selection-start-column="19" selection-end-line="411" selection-end-column="19" />
+            <state relative-caret-position="217">
+              <caret line="315" column="43" selection-start-line="315" selection-start-column="43" selection-end-line="315" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Exersise.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Exersise.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TDDT/XML_body/Exersise.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="249">
               <caret line="53" column="2" selection-start-line="53" selection-start-column="2" selection-end-line="53" selection-end-column="2" />
-              <folding>
-                <element signature="e#496#497#0" expanded="true" />
-                <element signature="e#523#524#0" expanded="true" />
-                <element signature="e#574#575#0" expanded="true" />
-                <element signature="e#606#607#0" expanded="true" />
-                <element signature="e#730#731#0" expanded="true" />
-                <element signature="e#774#775#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -92,7 +88,7 @@
       <file leaf-file-name="XMLController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TDDT/XML_body/XMLController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="837">
+            <state relative-caret-position="1998">
               <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
               <folding />
             </state>
@@ -102,7 +98,7 @@
       <file leaf-file-name="Aufgaben.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Aufgaben.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="454">
+            <state relative-caret-position="1332">
               <caret line="74" column="4" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
               <folding />
             </state>
@@ -112,13 +108,9 @@
       <file leaf-file-name="Babysteps.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TDDT/Erweiterungen/Babysteps.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1210">
+            <state relative-caret-position="990">
               <caret line="62" column="64" selection-start-line="62" selection-start-column="64" selection-end-line="62" selection-end-column="64" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#773#774#0" expanded="false" />
-                <element signature="e#805#806#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -126,7 +118,7 @@
       <file leaf-file-name="example.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1562">
+            <state relative-caret-position="1278">
               <caret line="71" column="30" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
               <folding />
             </state>
@@ -136,48 +128,30 @@
       <file leaf-file-name="CompileHelper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TDDT/Compiler/CompileHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2310">
+            <state relative-caret-position="1854">
               <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#1922#1923#0" expanded="false" />
-                <element signature="e#1970#1971#0" expanded="false" />
-                <element signature="e#2019#2020#0" expanded="false" />
-                <element signature="e#2071#2072#0" expanded="false" />
-                <element signature="e#2113#2114#0" expanded="false" />
-                <element signature="e#2184#2185#0" expanded="false" />
-                <element signature="e#2235#2236#0" expanded="false" />
-                <element signature="e#2286#2287#0" expanded="false" />
-                <element signature="e#2335#2336#0" expanded="false" />
-                <element signature="e#2384#2385#0" expanded="false" />
-                <element signature="e#2445#2446#0" expanded="false" />
-                <element signature="e#2501#2502#0" expanded="false" />
-                <element signature="e#3316#3317#0" expanded="false" />
-                <element signature="e#3393#3394#0" expanded="false" />
-                <element signature="e#3905#3906#0" expanded="false" />
-                <element signature="e#3968#3969#0" expanded="false" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="sample.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/sample.fxml">
-          <provider editor-type-id="JavaFX-Scene-Builder">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="814">
+            <state relative-caret-position="339">
               <caret line="37" column="15" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="example.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TDDT/example.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
+            <state relative-caret-position="180">
               <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
               <folding />
             </state>
@@ -187,12 +161,9 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-              <folding>
-                <element signature="e#735#736#0" expanded="true" />
-                <element signature="e#763#764#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="252">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -245,10 +216,10 @@
         <option value="$PROJECT_DIR$/src/TDDT/Editor/Model.java" />
         <option value="$PROJECT_DIR$/example.xml" />
         <option value="$PROJECT_DIR$/src/TDDT/Editor/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/TDDT/Editor/Controller.java" />
         <option value="$PROJECT_DIR$/src/TDDT/XML_body/XMLController.java" />
         <option value="$PROJECT_DIR$/Aufgaben.xml" />
         <option value="$PROJECT_DIR$/src/TDDT/XML_body/Exersise.java" />
+        <option value="$PROJECT_DIR$/src/TDDT/Editor/Controller.java" />
       </list>
     </option>
   </component>
@@ -261,10 +232,10 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1301" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -296,7 +267,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -393,8 +364,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -833,7 +804,7 @@
     <option name="totallyTimeSpent" value="3019000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="65" y="24" width="1301" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -842,27 +813,27 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16739607" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22993827" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.253125" sideWeight="0.6703755" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25737053" sideWeight="0.6703755" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20833333" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Code Iris" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
-      <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Code Iris" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="165" y="152" width="1101" height="544" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1116,33 +1087,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TDDT/Compiler/CompileHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2310">
+        <state relative-caret-position="1854">
           <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1922#1923#0" expanded="false" />
-            <element signature="e#1970#1971#0" expanded="false" />
-            <element signature="e#2019#2020#0" expanded="false" />
-            <element signature="e#2071#2072#0" expanded="false" />
-            <element signature="e#2113#2114#0" expanded="false" />
-            <element signature="e#2184#2185#0" expanded="false" />
-            <element signature="e#2235#2236#0" expanded="false" />
-            <element signature="e#2286#2287#0" expanded="false" />
-            <element signature="e#2335#2336#0" expanded="false" />
-            <element signature="e#2384#2385#0" expanded="false" />
-            <element signature="e#2445#2446#0" expanded="false" />
-            <element signature="e#2501#2502#0" expanded="false" />
-            <element signature="e#3316#3317#0" expanded="false" />
-            <element signature="e#3393#3394#0" expanded="false" />
-            <element signature="e#3905#3906#0" expanded="false" />
-            <element signature="e#3968#3969#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TDDT/example.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="180">
           <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
           <folding />
         </state>
@@ -1150,49 +1103,23 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/example.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1562">
+        <state relative-caret-position="1278">
           <caret line="71" column="30" selection-start-line="71" selection-start-column="30" selection-end-line="71" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/sample.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
-          <caret line="37" column="15" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TDDT/Erweiterungen/Babysteps.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1210">
+        <state relative-caret-position="990">
           <caret line="62" column="64" selection-start-line="62" selection-start-column="64" selection-end-line="62" selection-end-column="64" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#773#774#0" expanded="false" />
-            <element signature="e#805#806#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="24" column="9" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
-          <folding>
-            <element signature="e#735#736#0" expanded="true" />
-            <element signature="e#763#764#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TDDT/XML_body/XMLController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="837">
+        <state relative-caret-position="1998">
           <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
           <folding />
         </state>
@@ -1200,16 +1127,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Aufgaben.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="454">
+        <state relative-caret-position="1332">
           <caret line="74" column="4" selection-start-line="74" selection-start-column="4" selection-end-line="74" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8316">
-          <caret line="411" column="19" selection-start-line="411" selection-start-column="19" selection-end-line="411" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1218,14 +1137,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
           <caret line="53" column="2" selection-start-line="53" selection-start-column="2" selection-end-line="53" selection-end-column="2" />
-          <folding>
-            <element signature="e#496#497#0" expanded="true" />
-            <element signature="e#523#524#0" expanded="true" />
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#774#775#0" expanded="true" />
-          </folding>
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/sample.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="37" column="15" selection-start-line="37" selection-start-column="15" selection-end-line="37" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TDDT/Editor/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="315" column="43" selection-start-line="315" selection-start-column="43" selection-end-line="315" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
