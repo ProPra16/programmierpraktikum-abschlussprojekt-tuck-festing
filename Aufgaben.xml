@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><exercises><exercise><exerciseName>
+            Test Name
+        </exerciseName><exerciseText>
+            Das ist auch ein Text
+        
+        
+</exerciseText><class>
+            import org.junit.Test;
+            import static org.junit.Assert.assertEquals;
+            public class TestClass{
+            @Test
+            public void testGetTrue(){
+            assertEquals(true, Class.getTrue());
+            }
+            @Test
+            public void testGetTruetoo(){
+            assertEquals(false, Class.getFalse());
+            }
+            @Test
+            public void testGetTwo(){
+            assertEquals(3, Class.getTwo());
+            }
+            }
+        
+        
+</class><testClass>
+            import org.junit.Test;
+            import static org.junit.Assert.assertEquals;
+            public class TestClass{
+            @Test
+            public void testGetTrue(){dffgchfghfjfjfg
+            assertEquals(true, Class.getTrue());
+            }
+            @Test
+            public void testGetTruetoo(){
+            assertEquals(false, Class.getFalse());
+            }
+            @Test
+            public void testGetTwo(){
+            assertEquals(3, Class.getTwo());
+            }
+            }
+        
+        
+</testClass><state>1</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>60</BabyStepTimer></exercise><exercise><exerciseName>
+            Other Name
+            </exerciseName><exerciseText>
+            Hier gehört der Aufgaben text hin.
+        
+            
+</exerciseText><class>
+            import org.junit.Test;
+            import static org.junit.Assert.assertEquals;
+            public class TestClass{
+            @Test
+            public void testGetTrue(){
+            assertEquals(true, Class.getTrue());
+            }
+            @Test
+            public void testGetTruetoo(){
+            assertEquals(false, Class.getFalse());
+            }
+            @Test
+            public void testGetTwo(){
+            assertEquals(3, Class.getTwo());
+            }
+            }
+        
+            
+</class><testClass>
+            import org.junit.Test;
+            import static org.junit.Assert.assertEquals;
+            public class TestClass{
+            @Test
+            public void testGetTrue(){
+            assertEquals(true, Class.getTrue());
+            }
+            @Test
+            public void testGetTruetoo(){
+            assertEquals(false, Class.getFalse());
+            }
+            @Test
+            public void testGetTwo(){
+            assertEquals(3, Class.getTwo());
+            }
+            }
+        
+            
+</testClass><state>0</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>60</BabyStepTimer></exercise></exercises>
