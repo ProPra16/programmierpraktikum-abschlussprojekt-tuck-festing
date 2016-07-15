@@ -10,6 +10,7 @@ import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BooleanSupplier;
 
 /*************************************************
  * Diese Klasse soll dazu dienen, um die Klasse Controller etwas vereinfachen/ordlich halten.
@@ -78,6 +79,7 @@ public class Model {
         returner.add(new TextFile(currentExercise.getWriteableCode()));
         returner.add(new TextFile(currentExercise.getTestCode()));
         returner.add(new TextFile(currentExercise.getExersiseText()));
+        returner.add(new TextFile(currentExercise.getATTD()));
         return returner;
 
 
@@ -88,6 +90,7 @@ public class Model {
     public int getBabyStepTimer(){
         return currentExercise.getBabyStepsTimer();
     }
+    public Boolean isATTDEnabled(){return currentExercise.isEnableATTD();}
 
     public Wrapper<TextFile> load(Path file){
         try {

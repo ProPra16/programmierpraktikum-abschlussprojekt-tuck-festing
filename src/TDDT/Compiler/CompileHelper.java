@@ -1,6 +1,5 @@
 package TDDT.Compiler;
 
-
 import vk.core.api.*;
 
 import java.util.Collection;
@@ -15,9 +14,6 @@ public class CompileHelper {
     private JavaStringCompiler _compiler;
     private CompilationUnit _featureTestUnit;
 
-    public CompileHelper() {
-    }
-
     public void AddSourceClass(String className, String classSource) {
         _sourceUnit = new CompilationUnit(className, classSource, false);
     }
@@ -30,7 +26,6 @@ public class CompileHelper {
         _featureTestUnit = new CompilationUnit(feauterTestClassName, feautretestClassSource, true);
     }
 
-
     public void CompileAndTest() {
 
         if (_featureTestUnit != null && _sourceUnit != null && _testUnit != null)
@@ -38,7 +33,7 @@ public class CompileHelper {
         else if (_sourceUnit != null && _testUnit != null)
             _compiler = CompilerFactory.getCompiler(_sourceUnit, _testUnit);
         else if (_sourceUnit != null && _featureTestUnit != null)
-            _compiler = CompilerFactory.getCompiler(_sourceUnit, _testUnit);
+            _compiler = CompilerFactory.getCompiler(_sourceUnit, _featureTestUnit);
         else if (_testUnit != null && _featureTestUnit != null)
             _compiler = CompilerFactory.getCompiler(_featureTestUnit, _testUnit);
         else if (_featureTestUnit != null)
@@ -46,8 +41,8 @@ public class CompileHelper {
         else if (_testUnit != null)
             _compiler = CompilerFactory.getCompiler(_testUnit);
         else if (_sourceUnit != null)
-            _compiler = CompilerFactory.getCompiler(_featureTestUnit);
-        
+            _compiler = CompilerFactory.getCompiler(_sourceUnit);
+
         _compiler.compileAndRunTests();
     }
 
@@ -122,12 +117,12 @@ public class CompileHelper {
         return result;
     }
 
-    public int NumberOfFailedFeatureTest(){
+    public int NumberOfFailedFeatureTest() {
         return CountFailedFeatureTest(_featureTestUnit);
     }
 
-    private int CountFailedFeatureTest(CompilationUnit cu){
-        if(cu == null || _compiler.getTestResult().getNumberOfFailedTests() == 0)
+    private int CountFailedFeatureTest(CompilationUnit cu) {
+        if (cu == null || _compiler.getTestResult().getNumberOfFailedTests() == 0)
             return 0;
 
         int result = 0;
@@ -135,7 +130,7 @@ public class CompileHelper {
         Collection<TestFailure> failures = _compiler.getTestResult().getTestFailures();
 
         for (TestFailure failure : failures)
-            if(failure.getTestClassName().equalsIgnoreCase(cu.getClassName()))
+            if (failure.getTestClassName().equalsIgnoreCase(cu.getClassName()))
                 ++result;
 
         return result;

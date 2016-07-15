@@ -475,9 +475,11 @@ public class Controller {
             task = new TextFile(Arrays.asList(uneditableRightBottomArea.getText().split("\n")));
             test = new TextFile(Arrays.asList(editableArea.getText().split("\n")));
             code = new TextFile(Arrays.asList(uneditableRightTopArea.getText().split("\n")));
+            atddt = new TextFile(Arrays.asList(editableArea.getText().split("\n")));
             model.getExersise().setWriteableCode(code.getAsArrayList());
             model.getExersise().setTestCode(test.getAsArrayList());
             model.getExersise().setExersiseText(task.getAsArrayList());
+            model.getExersise().setExersiseText(atddt.getAsArrayList());
             model.getExersise().setState(phase);
             model.saveExersise();
         }
@@ -485,7 +487,9 @@ public class Controller {
             task = new TextFile(Arrays.asList(uneditableRightBottomArea.getText().split("\n")));
             test = new TextFile(Arrays.asList(uneditableRightTopArea.getText().split("\n")));
             code = new TextFile(Arrays.asList(editableArea.getText().split("\n")));
+            atddt = new TextFile(Arrays.asList(editableArea.getText().split("\n")));
             model.getExersise().setWriteableCode(code.getAsArrayList());
+            model.getExersise().setExersiseText(atddt.getAsArrayList());
             model.getExersise().setTestCode(test.getAsArrayList());
             model.getExersise().setExersiseText(task.getAsArrayList());
             model.getExersise().setState(phase);
