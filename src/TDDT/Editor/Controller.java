@@ -86,6 +86,7 @@ public class Controller {
         model = new Model(secondModel.getNumber());
         setAllTextFiles(model.getAllTextFiles(code, test, task, atddt));
         this.compileHelper = new CompileHelper();
+        atddt = new TextFile(Arrays.asList(" "));
 
     }
 
@@ -309,6 +310,9 @@ public class Controller {
         TextArea textArea = new TextArea();
         GridPane pane = new GridPane();
         Button button = new Button("Done");
+        textArea.clear();
+        atddt.getContent().forEach(line -> textArea.appendText(line + "\n"));
+
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
