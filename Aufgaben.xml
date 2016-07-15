@@ -42,7 +42,9 @@
             }
         
         
-</testClass><state>1</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>60</BabyStepTimer></exercise><exercise><exerciseName>
+</testClass><state>1</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>60</BabyStepTimer>
+            <enableATTD>true</enableATTD>
+            <ATTD> Hier Akzeptanztests schreiben.</ATTD></exercise><exercise><exerciseName>
             Other Name
             </exerciseName><exerciseText>
             Hier gehört der Aufgaben text hin.
@@ -67,7 +69,10 @@
             }
         
             
-</class><testClass>
+</class>
+    <enableATTD>true</enableATTD>
+    <ATTD> Hier Akzeptanztests schreiben.</ATTD>
+    <testClass>
             import org.junit.Test;
             import static org.junit.Assert.assertEquals;
             public class TestClass{

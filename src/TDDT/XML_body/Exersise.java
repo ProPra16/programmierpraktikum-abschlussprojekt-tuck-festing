@@ -16,7 +16,25 @@ public class Exersise {
     Boolean enableBabysteps;
     int BabyStepsTimer;
      int state;
+    boolean enableATTD;
+    ArrayList<String> ATTD;
 
+    public ArrayList<String> getATTD() {
+        return ATTD;
+    }
+
+    public void setATTD(ArrayList<String> ATTD) {
+        this.ATTD = ATTD;
+    }
+
+    public boolean isEnableATTD() {
+
+        return enableATTD;
+    }
+
+    public void setEnableATTD(boolean enableATTD) {
+        this.enableATTD = enableATTD;
+    }
 
     public int getState() {
 
@@ -28,16 +46,26 @@ public class Exersise {
     }
 
     //May add Constructors for the extensions
-    public Exersise(String exersiseName, String exersiseClass, String testClass , String Aufgabe ,String state, String enableBabySteps, String BabyStepsTimer)
+    public Exersise(String exersiseName, String exerciseClass, String testClass , String Aufgabe ,String state, String enableBabySteps, String BabyStepsTimer, String enableATTD, String ATTD)
     {
         this.exersiseName = exersiseName;
         this.testCode = getToArray(testClass);
-        this.writeableCode = getToArray(testClass);
+        this.writeableCode = getToArray(exerciseClass);
         this.exersiseText = getToArray(Aufgabe);
         this.state = Integer.parseInt(state);
         this.enableBabysteps = Boolean.parseBoolean(enableBabySteps);
         this.BabyStepsTimer = Integer.parseInt(BabyStepsTimer);
-
+        this.enableATTD = Boolean.parseBoolean(enableATTD);
+        this.ATTD = getToArray(ATTD);
+    }
+    public String getATTDCodeAsString()
+    {
+        String returner = "";
+        for(String t : ATTD)
+        {
+            returner += t + "\n";
+        }
+        return returner;
     }
     public String getTestCodeAsString()
     {

@@ -62,6 +62,14 @@ public class XMLController {
                 BabyStepTimer.appendChild(doc.createTextNode(String.valueOf(e.getExersises().get(i).getBabyStepsTimer())));
                 exercise.appendChild(BabyStepTimer);
 
+                Element enableATTD = doc.createElement("enableATTD");
+                enableATTD.appendChild(doc.createTextNode(String.valueOf(e.getExersises().get(i).isEnableATTD())));
+                 exercise.appendChild(enableATTD);
+
+                Element ATTD = doc.createElement("ATTD");
+                ATTD.appendChild(doc.createTextNode(e.getExersises().get(i).getATTDCodeAsString()));
+                exercise.appendChild(ATTD);
+
                 TransformerFactory transformerFactory = TransformerFactory.newInstance();
                 Transformer transformer = transformerFactory.newTransformer();
                 DOMSource fromDoc = new DOMSource(doc);
@@ -98,8 +106,10 @@ public class XMLController {
                 String state = exercise.getElementsByTagName("state").item(0).getTextContent();
                 String enableBabysteps = exercise.getElementsByTagName("enableBabySteps").item(0).getTextContent();
                 String BabyStepsTimer = exercise.getElementsByTagName("BabyStepTimer").item(0).getTextContent();
+                String enableATTD = exercise.getElementsByTagName("enableATTD").item(0).getTextContent();
+                String ATTD = exercise.getElementsByTagName("ATTD").item(0).getTextContent();
 
-                e.addExercise(new Exersise(exerciseName,ExClass,testClass,exerciseText,state,enableBabysteps,BabyStepsTimer));
+                e.addExercise(new Exersise(exerciseName,ExClass,testClass,exerciseText,state,enableBabysteps,BabyStepsTimer, enableATTD, ATTD));
 
             }
             return e;
