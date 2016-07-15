@@ -72,7 +72,7 @@ public class Model {
     Das kann man am besten in der Klasse Wrapper selbst machen, aber vorher soll alles andere gemacht werden,
     da wir die möglichen exceptions erst wissen sollen, damit wir die entsprechende Alarms konfigurieren.
      */
-    public ArrayList<TextFile> getAllTextFiles(TextFile code, TextFile test, TextFile task)
+    public ArrayList<TextFile> getAllTextFiles(TextFile code, TextFile test, TextFile task , TextFile attd)
     {
         ArrayList<TextFile> returner = new ArrayList<TextFile>();
 

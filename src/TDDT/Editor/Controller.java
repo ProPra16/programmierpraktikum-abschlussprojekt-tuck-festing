@@ -84,7 +84,7 @@ public class Controller {
     public Controller(){
         secondModel = new IntSenderModel();
         model = new Model(secondModel.getNumber());
-        setAllTextFiles(model.getAllTextFiles(code, test, task));
+        setAllTextFiles(model.getAllTextFiles(code, test, task, atddt));
         this.compileHelper = new CompileHelper();
 
     }
@@ -357,7 +357,7 @@ public class Controller {
         uneditableRightBottomArea.clear();
         getExersice();
         model = new Model(secondModel.getNumber());
-        setAllTextFiles(model.getAllTextFiles(code, test, task));
+        setAllTextFiles(model.getAllTextFiles(code, test, task, atddt));
         phase = model.getExersise().getState();
         state = true;
         setColorAccordingToPhase();
@@ -377,6 +377,7 @@ public class Controller {
             test.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
             task.getContent().forEach(line -> uneditableRightBottomArea.appendText(line + "\n"));
         }
+
 
     }
     private void setColorAccordingToPhase()
@@ -459,6 +460,7 @@ public class Controller {
         code = t.get(0);
         test = t.get(1);
         task = t.get(2);
+        atddt =t.get(3);
     }
 
 
