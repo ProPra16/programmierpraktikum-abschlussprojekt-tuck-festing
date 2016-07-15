@@ -93,10 +93,15 @@ public class Controller {
 
 
 
+
     @FXML
     private void makeStep() {
         consoleTitle.setText("");
-        //aTDDLabel.setStyle("-fx-background-color: red;");
+        if(compileHelper.NumberOfFailedFeatureTest()==0)   // prüft den Akzeptanztest
+        aTDDLabel.setStyle("-fx-background-color: green;");
+        else if(compileHelper.NumberOfFailedFeatureTest()!=0)
+            aTDDLabel.setStyle("-fx-background-color: red;");
+
         int phaseSetter = 0; // Dieser phaseSetter wird benutzt um die Phasen zu setzen da wenn man diese erhöht das nächsthöhere if-Event sonst getriggered wird.
         if(phase%3 == 0) {
             compileHelper.AddSourceClass("Class", uneditableRightTopArea.getText());
