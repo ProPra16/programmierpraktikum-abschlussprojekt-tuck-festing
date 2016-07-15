@@ -82,6 +82,12 @@ public class Model {
 
 
     }
+    public Boolean isBabystepsEnabled(){
+        return currentExercise.getEnableBabysteps();
+    }
+    public int getBabyStepTimer(){
+        return currentExercise.getBabyStepsTimer();
+    }
 
     public Wrapper<TextFile> load(Path file){
         try {
