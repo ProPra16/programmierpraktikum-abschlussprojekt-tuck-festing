@@ -2,8 +2,6 @@ package Test;
 
 import TDDT.Compiler.CompileHelper;
 import org.junit.Test;
-import vk.core.api.CompilerResult;
-import vk.core.api.TestResult;
 
 import static org.junit.Assert.assertEquals;
 
