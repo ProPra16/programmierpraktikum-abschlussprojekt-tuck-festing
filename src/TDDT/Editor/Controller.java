@@ -316,10 +316,7 @@ public class Controller {
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                atddt = new TextFile(Arrays.asList(textArea.getText().split("\n")));
-                for(String s: atddt.getContent()){
-                    System.out.println(s);
-                }
+              atddt = new TextFile(Arrays.asList(textArea.getText().split("\n")));
                 stage.close();
             }
         });
@@ -477,11 +474,11 @@ public class Controller {
             task = new TextFile(Arrays.asList(uneditableRightBottomArea.getText().split("\n")));
             test = new TextFile(Arrays.asList(editableArea.getText().split("\n")));
             code = new TextFile(Arrays.asList(uneditableRightTopArea.getText().split("\n")));
-            atddt = new TextFile(Arrays.asList(editableArea.getText().split("\n")));
+
             model.getExersise().setWriteableCode(code.getAsArrayList());
             model.getExersise().setTestCode(test.getAsArrayList());
             model.getExersise().setExersiseText(task.getAsArrayList());
-            model.getExersise().setExersiseText(atddt.getAsArrayList());
+            model.getExersise().setATTD(atddt.getAsArrayList());
             model.getExersise().setState(phase);
             model.saveExersise();
         }
