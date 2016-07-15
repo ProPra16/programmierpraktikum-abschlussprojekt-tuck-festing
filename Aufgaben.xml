@@ -28,7 +28,7 @@
             import static org.junit.Assert.assertEquals;
             public class TestClass{
             @Test
-            public void testGetTrue(){dffgchfghfjfjfg
+            public void testGetTrue(){
             assertEquals(true, Class.getTrue());
             }
             @Test
@@ -91,4 +91,127 @@
             }
         
             
-</testClass><state>0</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>60</BabyStepTimer></exercise></exercises>
+</testClass><state>0</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>60</BabyStepTimer></exercise>
+<exercise><exerciseName>
+            Game of Life
+            </exerciseName><exerciseText>
+Das Spielfeld
+
+Das Spielfeld ist in Zeilen und Spalten unterteilt und im Idealfall unendlich groß. Jedes Gitterquadrat ist ein zellulärer Automat (Zelle), der einen von zwei Zuständen einnehmen kann, welche oft als lebendig und tot bezeichnet werden. Zunächst wird eine Anfangsgeneration von lebenden Zellen auf dem Spielfeld platziert. Jede lebende oder tote Zelle hat auf diesem Spielfeld genau acht Nachbarzellen, die berücksichtigt werden (Moore-Nachbarschaft). Die nächste Generation ergibt sich durch die Befolgung einfacher Regeln.
+
+Das Spiel kann manuell auf einem Stück Papier oder mit Computerhilfe simuliert werden. Da ein reales Spielfeld immer einen Rand hat, muss das Verhalten dort festgelegt werden. Man kann sich den Rand zum Beispiel durch tote Zellen belegt denken, so dass manche Gleiter ihre Bewegungsrichtung dort ändern. Eine andere Möglichkeit ist ein Torus-förmiges Spielfeld, bei dem alles, was das Spielfeld nach unten verlässt, oben wieder herauskommt und umgekehrt, und alles, was das Spielfeld nach links verlässt, rechts wieder eintritt und umgekehrt.
+
+Alternativ kann man auch nur lebendige Zellen und ihre direkte Umgebung simulieren und bei Bedarf mehr Speicher allozieren, da große tote Flächen tot bleiben. So hat man zumindest ein quasi-unendliches Feld.
+
+Anstatt auf einer quadratisch gerasterten Ebene kann die Simulation auch auf einer sechseckig gerasterten Ebene erfolgen. Dann beträgt die maximale Zahl der Nachbarn nicht acht, sondern sechs. Es gibt auch dreidimensionale Game of Life-Simulationen.
+
+Eine weitere Variationsmöglichkeit ist die Vergrößerung der möglichen diskreten Zustände einer Gitterzelle.
+
+
+
+Die Spielregeln
+
+Die Folgegeneration wird für alle Zellen gleichzeitig berechnet und ersetzt die aktuelle Generation. Der Zustand einer Zelle, lebendig oder tot, in der Folgegeneration hängt nur vom Zustand der acht Nachbarzellen dieser Zelle in der aktuellen Generation ab.
+
+Die von Conway zu Anfang verwendeten Regeln sind:
+
+-Eine tote Zelle mit genau drei lebenden Nachbarn wird in der Folgegeneration neu geboren.
+
+-Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an Einsamkeit.
+
+-Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben.
+
+-Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneration an Überbevölkerung.
+
+
+Mit diesen vier einfachen Regeln entsteht aus bestimmten Anfangsmustern im Laufe des Spiels eine Vielfalt komplexer Strukturen. Einige bleiben unverändert, andere oszillieren und wieder andere wachsen oder vergehen. Manche Strukturen, sogenannte Gleiter, bewegen sich auf dem Spielfeld fort. Sogar für logische Funktionen wie UND und ODER lassen sich Anfangsmuster finden. Damit können dann sogar komplexe Funktionen der Schaltungslogik und digitalen Rechnertechnik nachgebaut werden.
+
+
+Quelle: Wikipedia
+
+Aufgabe
+
+Entwickeln sie Testgetreiben eine Programm, dass die Regeln von Game of life befolgt.
+Für jeden Teilschritt, haben Sie 120 Minuten zeit.
+
+
+Quelle für Vorlage der Klassen: Heinrich Heine Universität Informatik 1 Praktische Übungen Wintersemester 2015
+        
+            
+</exerciseText><class>
+            
+public class GameOfLife {
+
+	/*
+	 * Gibt die Anzahl der Nachbarn der Zelle an Position zeile, spalte in dem
+	 * Array board zurueck.
+	 */
+	public static int zaehleLebendeNachbarn(int[][] board, int zeile, int spalte) {
+		return -1;
+	}
+
+	/*
+	 * Gibt 0 zurueck, falls die Zelle in der naechsten Generation tot sein soll
+	 * Gibt 1 zurueck, falls die Zelle in der naechsten Generation lebendig sein soll
+	 */
+	public static int spielregel(int nachbarn, int aktiv) {
+		return -1;
+	}
+
+	/* Ausgehend von dem Array board wird ein Schritt berechnet.
+	 * Hinweis: Alle Randzellen sind immer 0
+	 */
+	public static int[][] berechneNaechsteGeneration(int[][] board) {
+		return board;
+	}
+
+// *******************************************************************************************
+//                              AB HIER NICHTS AENDERN
+// *******************************************************************************************
+
+
+// Diese Funktion kann fuer das Debugging verwendet werden 
+	public static void printBoard(int[][] b) {
+		for (int i = 0; i   &lt;  b.length; i++) {
+			for (int j = 0; j   &lt;  b[i].length - 1; j++) {
+				System.out.print(b[i][j] + " ");
+			}
+			System.out.println(b[i][b[i].length - 1]);
+		}
+	}
+
+// Erzeuge ein zufaelliges Board
+	public static int[][] createRandomBoard(int size) {
+		int[][] b = new int[size][size];
+		for (int i = 1; i   &lt;  b.length - 1; i++) {
+			for (int j = 1; j   &lt;  b.length - 1; j++) {
+				if (Math.random() > 0.9)
+					b[i][j] = 1;
+			}
+		}
+		return b;
+	}
+
+// Demo (board erzeugen, ausgeben, einen Schritt berechnen, ausgeben)
+	public static void main(String[] args) {
+		int[][] board = createRandomBoard(30);
+		printBoard(board);
+		printBoard(berechneNaechsteGeneration(board));
+	}
+
+}
+
+        
+            
+</class><testClass>
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class GameOfLifeTest {
+ 
+  
+}
+        
+            
+</testClass><state>0</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>120</BabyStepTimer></exercise></exercises>
