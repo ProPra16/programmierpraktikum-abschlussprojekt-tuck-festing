@@ -95,6 +95,8 @@ public class Controller {
 
     @FXML
     private void makeStep() {
+       // if (compileHelper.NumberOfFailedFeatureTest()==0&& phase==2)
+       //     onATDDT();
         consoleTitle.setText("");
         if(compileHelper.NumberOfFailedFeatureTest()==0)   // prüft den Akzeptanztest
         aTDDLabel.setStyle("-fx-background-color: green;");
@@ -245,7 +247,10 @@ public class Controller {
                 uneditableRightTopArea.clear();
                 code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
             }
-
+            else if(compileHelper.NumberOfFailedFeatureTest()==0&& compileHelper.NumberOfFailedTests()==0){
+                phaseSetter=3;
+                onATDDT();
+            }
         }
         phase = phaseSetter;
         System.out.print("");
