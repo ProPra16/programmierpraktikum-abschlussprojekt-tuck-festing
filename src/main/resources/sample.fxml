@@ -21,9 +21,9 @@
                  <MenuItem onAction="#makeStep" text="Compile" />
                  <MenuItem onAction="#onLoad" text="Load" />
                  <MenuItem onAction="#onSave" text="Save" />
-                 <MenuItem onAction="#onRefactor" text="Refactor Done" />
+                 <MenuItem onAction="#onRefactor" text="Refactor" />
                  <MenuItem onAction="#onATDDT" text="Set acceptance test" />
-                 <MenuItem onAction="#stepBack" text="step back" />
+                 <MenuItem onAction="#stepBack" text="Step back" />
                  <MenuItem onAction="#onClose" text="Close" />
              </items>
           </Menu>

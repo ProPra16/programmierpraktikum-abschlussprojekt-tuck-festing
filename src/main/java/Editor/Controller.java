@@ -207,7 +207,7 @@ public class Controller {
                 editableArea.setStyle("-fx-background-color: gray");
                 phaseSetter = 2;
                 consoleTitle.setText("Tests");
-                console.appendText("Tests passed.");
+                console.appendText("Tests passed. You are now in refactoring mode.\n Press 'Refactor' if you want to Test if your code works. \n Press 'Compile' if your code works and you want to continue to the Test-Phase. ");
                 console.positionCaret(1);
 
                 babysteps.Stop();
@@ -234,7 +234,7 @@ public class Controller {
             else if (compileHelper.NumberOfFailedTests() == 0 ) {
                 consoleTitle.setText("Tests");
                 console.clear();
-                console.appendText("Tests passed.");
+                console.appendText("Tests passed. You are now back in Test-Mode");
                 console.positionCaret(1);
                 editableArea.setStyle("-fx-background-color: red");
                 phaseSetter = 0;
@@ -350,8 +350,30 @@ public class Controller {
     }
     @FXML
     private void onRefactor(){
-        refactorBool = false;
-        makeStep();
+        if(phase == 2) {
+
+            compileHelper.AddSourceClass("Class", editableArea.getText());
+            compileHelper.SetTest("TestClass", uneditableRightTopArea.getText());
+            compileHelper.CompileAndTest();
+            if (compileHelper.HasCompilerErrors()) {
+                console.clear();
+                console.appendText(compileHelper.GetCompilerErros());
+                console.positionCaret(1);
+                consoleTitle.setText("Compiler");
+                editableArea.setStyle("-fx-background-color: gray");
+            } else if (compileHelper.NumberOfFailedTests() == 0) {
+                consoleTitle.setText("Tests");
+                console.clear();
+                console.appendText("Tests passed. You can now Continue with 'Compile' or Refactor some more.");
+                console.positionCaret(1);
+                editableArea.setStyle("-fx-background-color: gray");
+
+            }
+        }
+        else{
+            console.clear();
+            console.appendText("You can only use this Button In refactoring mode, (indicated by a grey Border around the Editor Field.");
+        }
     }
 
 
