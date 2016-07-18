@@ -1,90 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><exercises><exercise><exerciseName>
-            Test Name
+            Beispielaufgabe: n^2
         </exerciseName><exerciseText>
-            Das ist auch ein Text
+            Dies ist eine Beispielaufgabe um die Funktionsweise des Programms zu testen.
+            Implementieren sie die Funktion n^2
         
         
 </exerciseText><class>
-            import org.junit.Test;
-            import static org.junit.Assert.assertEquals;
-            public class TestClass{
-            @Test
-            public void testGetTrue(){
-            assertEquals(true, Class.getTrue());
-            }
-            @Test
-            public void testGetTruetoo(){
-            assertEquals(false, Class.getFalse());
-            }
-            @Test
-            public void testGetTwo(){
-            assertEquals(3, Class.getTwo());
-            }
-            }
+        public class Class{
+
+        }
         
         
 </class><testClass>
             import org.junit.Test;
             import static org.junit.Assert.assertEquals;
             public class TestClass{
-            @Test
-            public void testGetTrue(){
-            assertEquals(true, Class.getTrue());
-            }
-            @Test
-            public void testGetTruetoo(){
-            assertEquals(false, Class.getFalse());
-            }
-            @Test
-            public void testGetTwo(){
-            assertEquals(3, Class.getTwo());
-            }
+
             }
         
         
-</testClass><state>1</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>60</BabyStepTimer><enableATTD>true</enableATTD><ATTD> Hier Akzeptanztests schreiben.
-</ATTD></exercise><exercise><exerciseName>
-            Other Name
-            </exerciseName><exerciseText>
-            Hier gehört der Aufgaben text hin.
-        
-            
-</exerciseText><class>
-            public class Class{
-		public static Boolean getTrue(){
-			return true;
-		}
-		public static Boolean getFalse(){
-			return false;
-		}
-}
-            
-</class><testClass>
-            import org.junit.Test;
-            import static org.junit.Assert.assertEquals;
-            public class TestClass{
-            @Test
-            public void testGetTrue(){
-            assertEquals(true, Class.getTrue());
-            }
-            @Test
-            public void testGetFalse(){
-            assertEquals(false, Class.getFalse());
-            }
- }
-        
-            
-</testClass><state>2</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>60</BabyStepTimer><enableATTD>true</enableATTD><ATTD>
-            public class Class{
-		public static Boolean getTrue(){
-			return true;
-		}
-}
-            
+</testClass><state>0</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>60</BabyStepTimer><enableATTD>false</enableATTD><ATTD> Hier Akzeptanztests schreiben.
 </ATTD></exercise><exercise><exerciseName>
             Game of Life
-            </exerciseName><exerciseText> Hier Akzeptanztests schreiben.
-fdgdfhdfhfdgjd
+            </exerciseName><exerciseText>
+    Spielregeln: (Quelle: https://de.wikipedia.org/wiki/Conways_Spiel_des_Lebens)
+    -Eine tote Zelle mit genau drei lebenden Nachbarn wird in der Folgegeneration neu geboren.
+    -Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an Einsamkeit.
+    -Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben.
+    -Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneration an Überbevölkerung.
+
 </exerciseText><class>
             
 public class GameOfLife {
@@ -147,6 +91,7 @@ public class GameOfLife {
 	}
 
 }
+    // Quelle: (Informatik 1: praktische Übung 2)
 
         
             
@@ -161,6 +106,6 @@ public class GameOfLifeTest {
 }
         
             
-</testClass><state>0</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>120</BabyStepTimer><enableATTD>true</enableATTD><ATTD> Hier Akzeptanztests schreiben.
-sgdffxhfdhdfhdfhfddhffd
+</testClass><state>0</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>120</BabyStepTimer><enableATTD>false</enableATTD><ATTD> Hier Akzeptanztests schreiben.
+
 </ATTD></exercise></exercises>

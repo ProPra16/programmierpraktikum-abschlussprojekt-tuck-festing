@@ -148,7 +148,7 @@ public class Controller {
                 code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
                 editableArea.setStyle("-fx-background-color: green");
                 phaseSetter = 1;
-
+                onSave();
                 StartBabysteps();
             }
             else if(compileHelper.NumberOfFailedTests() == 1)
@@ -166,7 +166,7 @@ public class Controller {
                 code.getContent().forEach(line -> editableArea.appendText(line + "\n"));
                 editableArea.setStyle("-fx-background-color: green");
                 phaseSetter = 1;
-
+                onSave();
                 StartBabysteps();
             }
             else {
@@ -209,7 +209,7 @@ public class Controller {
                 consoleTitle.setText("Tests");
                 console.appendText("Tests passed. You are now in refactoring mode.\n Press 'Refactor' if you want to Test if your code works. \n Press 'Compile' if your code works and you want to continue to the Test-Phase. ");
                 console.positionCaret(1);
-
+                onSave();
                 babysteps.Stop();
             }
         }
@@ -309,27 +309,29 @@ public class Controller {
     }
 
     @FXML
-    public void onATDDT(){
-        Stage stage = new Stage();
-        stage.setTitle("ATDDT");
-        TextArea textArea = new TextArea();
-        GridPane pane = new GridPane();
-        Button button = new Button("Done");
-        textArea.clear();
-        atddt.getContent().forEach(line -> textArea.appendText(line + "\n"));
+    public void onATDDT() {
+        if (model.isATTD()) {
+            Stage stage = new Stage();
+            stage.setTitle("ATDDT");
+            TextArea textArea = new TextArea();
+            GridPane pane = new GridPane();
+            Button button = new Button("Done");
+            textArea.clear();
+            atddt.getContent().forEach(line -> textArea.appendText(line + "\n"));
 
-        button.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
-              atddt = new TextFile(Arrays.asList(textArea.getText().split("\n")));
-                stage.close();
-            }
-        });
-        pane.add(textArea, 0, 0);
-        pane.add(button, 1, 1);
-        stage.setScene(new Scene(pane));
-        stage.show();
+            button.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    atddt = new TextFile(Arrays.asList(textArea.getText().split("\n")));
+                    stage.close();
+                }
+            });
+            pane.add(textArea, 0, 0);
+            pane.add(button, 1, 1);
+            stage.setScene(new Scene(pane));
+            stage.show();
 
+        }
     }
     @FXML
     public void stepBack()

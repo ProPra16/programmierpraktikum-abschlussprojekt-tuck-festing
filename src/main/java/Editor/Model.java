@@ -61,6 +61,10 @@ public class Model {
         XMLController.saveAllExercises(allExercises);
 
     }
+    public Boolean isATTD()
+    {
+       return currentExercise.isEnableATTD();
+    }
 
     /*
     Load liefert uns unsere gewrappte TextFile.
