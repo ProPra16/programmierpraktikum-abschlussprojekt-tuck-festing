@@ -29,7 +29,7 @@ public class Exersise {
 
     public boolean isEnableATTD() {
 
-        return enableATTD;
+        return true;//enableATTD;
     }
 
     public void setEnableATTD(boolean enableATTD) {
