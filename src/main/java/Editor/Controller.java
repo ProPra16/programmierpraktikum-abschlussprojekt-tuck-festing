@@ -104,7 +104,7 @@ public class Controller {
             aTDDLabel.setStyle("-fx-background-color: red;");
 
         int phaseSetter = 0; // Dieser phaseSetter wird benutzt um die Phasen zu setzen da wenn man diese erhöht das nächsthöhere if-Event sonst getriggered wird.
-        if(phase%3 == 0) {
+        if(phase == 0) {
             compileHelper.AddSourceClass("Class", uneditableRightTopArea.getText());
             compileHelper.SetTest("TestClass", editableArea.getText());
         }
@@ -132,7 +132,7 @@ public class Controller {
 
             }*/
 
-        if (phase % 3 == 0 && compileHelper.GetTestClassCompilerError() != null) {
+        if (phase == 0 && compileHelper.GetTestClassCompilerError() != null) {
 
             if (compileHelper.HasCompilerErrors()) {
                 onSave();
@@ -183,7 +183,7 @@ public class Controller {
 
         }
 
-        if (phase % 3 == 1) {
+        if (phase == 1) {
             if (compileHelper.HasCompilerErrors()) {
                 editableArea.setStyle("-fx-background-color: green");
                 onSave();
@@ -216,7 +216,7 @@ public class Controller {
 
 
 
-        if (phase % 3 == 2) {
+        if (phase == 2) {
 
             if (compileHelper.HasCompilerErrors()) {
                 console.appendText(compileHelper.GetCompilerErros());
@@ -231,6 +231,13 @@ public class Controller {
                 editableArea.setStyle("-fx-background-color: gray");
                 phaseSetter = 2;
             }
+            else if(compileHelper.NumberOfFailedFeatureTest()==0&& compileHelper.NumberOfFailedTests()==0){
+                atddt.getContent();
+                onATDDT();
+                phaseSetter=3;
+            }
+
+
             else if (compileHelper.NumberOfFailedTests() == 0 ) {
                 consoleTitle.setText("Tests");
                 console.clear();
@@ -247,9 +254,20 @@ public class Controller {
                 uneditableRightTopArea.clear();
                 code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
             }
-            else if(compileHelper.NumberOfFailedFeatureTest()==0&& compileHelper.NumberOfFailedTests()==0){
-                phaseSetter=3;
-                onATDDT();
+
+        }
+        if(phase==3) {
+            if (compileHelper.NumberOfFailedFeatureTest() == 1) {
+                editableArea.clear();
+                test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+
+                uneditableRightTopArea.clear();
+                code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+                editableArea.setStyle("-fx-background-color: red");
+
+                console.clear();
+                phaseSetter = 0;
+
             }
         }
         phase = phaseSetter;
@@ -515,7 +533,7 @@ public class Controller {
             task = new TextFile(Arrays.asList(uneditableRightBottomArea.getText().split("\n")));
             test = new TextFile(Arrays.asList(uneditableRightTopArea.getText().split("\n")));
             code = new TextFile(Arrays.asList(editableArea.getText().split("\n")));
-            atddt = new TextFile(Arrays.asList(editableArea.getText().split("\n")));
+           // atddt = new TextFile(Arrays.asList(editableArea.getText().split("\n")));
             model.getExersise().setWriteableCode(code.getAsArrayList());
             model.getExersise().setExersiseText(atddt.getAsArrayList());
             model.getExersise().setTestCode(test.getAsArrayList());
