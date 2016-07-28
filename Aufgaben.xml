@@ -6,20 +6,61 @@
         
         
 </exerciseText><class>
-        public class Class{
 
-        }
-        
-        
+	import org.junit.Test;
+	import static org.junit.Assert.assertEquals;
+	public class TestClass{
+	@Test
+	public void test1(){
+	int i=2; assertEquals(4,Class.nmaln(i));
+	}
+
+	@Test
+	public void test2(){
+	int i=3; assertEquals(9,Class.nmaln(i));
+	}
+
+	@Test
+	public void test3(){
+	int i=4; assertEquals(16,Class.nmaln(i));
+	}
+
+	}
+	
 </class><testClass>
-            import org.junit.Test;
-            import static org.junit.Assert.assertEquals;
-            public class TestClass{
 
-            }
-        
-        
-</testClass><state>0</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>60</BabyStepTimer><enableATTD>false</enableATTD><ATTD> Hier Akzeptanztests schreiben.
+
+	public class Class{
+	public static void main(String[] args){
+	System.out.println(nmaln(2));
+	}
+	public static int nmaln(int i){
+	if(i==2)
+		return 4 ;
+	if(i==3)
+		return 9;
+	if(i==4)
+		return 16;
+	
+		return 0;
+	}
+}
+</testClass><state>3</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>60</BabyStepTimer><enableATTD>true</enableATTD><ATTD>import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+
+public class Test{
+
+@Test
+ public void akzeptanztest(){
+
+ assertEquals(25,Class.nmaln(5));
+ assertEquals(16,Class.nmaln(4));
+ assertEquals(9,Class.nmaln(3));
+ assertEquals(4,Class.nmaln(2));
+ assertEquals(1,Class.nmaln(1));
+
+ }
+}
 </ATTD></exercise><exercise><exerciseName>
             Game of Life
             </exerciseName><exerciseText>
@@ -28,7 +69,6 @@
     -Lebende Zellen mit weniger als zwei lebenden Nachbarn sterben in der Folgegeneration an Einsamkeit.
     -Eine lebende Zelle mit zwei oder drei lebenden Nachbarn bleibt in der Folgegeneration am Leben.
     -Lebende Zellen mit mehr als drei lebenden Nachbarn sterben in der Folgegeneration an Überbevölkerung.
-
 </exerciseText><class>
             
 public class GameOfLife {
@@ -106,6 +146,5 @@ public class GameOfLifeTest {
 }
         
             
-</testClass><state>0</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>120</BabyStepTimer><enableATTD>false</enableATTD><ATTD> Hier Akzeptanztests schreiben.
-
+</testClass><state>0</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>120</BabyStepTimer><enableATTD>true</enableATTD><ATTD> Hier Akzeptanztests schreiben.
 </ATTD></exercise></exercises>

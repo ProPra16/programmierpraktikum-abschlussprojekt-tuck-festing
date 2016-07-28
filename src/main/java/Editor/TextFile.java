@@ -28,5 +28,13 @@ public class TextFile {
         t.addAll(content);
         return t;
     }
+    public String getString(){
+
+        String result = "";
+        for(String text : content){
+            result += text + "\n";
+        }
+        return result;
+    }
     
 }

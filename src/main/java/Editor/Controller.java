@@ -95,13 +95,13 @@ public class Controller {
 
     @FXML
     private void makeStep() {
-       // if (compileHelper.NumberOfFailedFeatureTest()==0&& phase==2)
-       //     onATDDT();
+
         consoleTitle.setText("");
-        if(compileHelper.NumberOfFailedFeatureTest()==0)   // prüft den Akzeptanztest
-        aTDDLabel.setStyle("-fx-background-color: green;");
-        else if(compileHelper.NumberOfFailedFeatureTest()!=0)
-            aTDDLabel.setStyle("-fx-background-color: red;");
+
+        if(phase==3) {
+            compileHelper.SetFeatureTest("FeatureTest", atddt.getString());
+
+        }
 
         int phaseSetter = 0; // Dieser phaseSetter wird benutzt um die Phasen zu setzen da wenn man diese erhöht das nächsthöhere if-Event sonst getriggered wird.
         if(phase == 0) {
@@ -114,7 +114,15 @@ public class Controller {
         }
 
         compileHelper.CompileAndTest();
+        if(compileHelper.HasCompilerErrors()) {
+            aTDDLabel.setStyle("-fx-background-color: red;");
 
+        }
+
+
+        else if(compileHelper.NumberOfFailedFeatureTest()!=0) {
+            aTDDLabel.setStyle("-fx-background-color: red;");
+        }
          /*   if (compileHelper.GetTestClassCompilerError() == null || phase % 3 == 0 && compileHelper.NumberOfFailedTests() != 1 ) {
                 editableArea.setStyle("-fx-background-color: red");
 
@@ -215,7 +223,6 @@ public class Controller {
         }
 
 
-
         if (phase == 2) {
 
             if (compileHelper.HasCompilerErrors()) {
@@ -232,6 +239,8 @@ public class Controller {
                 phaseSetter = 2;
             }
             else if(compileHelper.NumberOfFailedFeatureTest()==0&& compileHelper.NumberOfFailedTests()==0){
+                 if(compileHelper.NumberOfFailedFeatureTest()==0)   // prüft den Akzeptanztest
+                    aTDDLabel.setStyle("-fx-background-color: green;");
                 atddt.getContent();
                 onATDDT();
                 phaseSetter=3;
@@ -256,8 +265,33 @@ public class Controller {
             }
 
         }
+
         if(phase==3) {
-            if (compileHelper.NumberOfFailedFeatureTest() == 1) {
+
+            if(compileHelper.HasCompilerErrors()){
+                aTDDLabel.setStyle("-fx-background-color: red;");
+                consoleTitle.setText("Tests");
+                console.clear();
+                console.positionCaret(1);
+                phaseSetter = 0;
+
+                editableArea.clear();
+                test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
+
+                uneditableRightTopArea.clear();
+                code.getContent().forEach(line -> uneditableRightTopArea.appendText(line + "\n"));
+                editableArea.setStyle("-fx-background-color: red");
+                onSave();
+            }
+
+            else if(!compileHelper.HasCompilerErrors()||compileHelper.NumberOfFailedFeatureTest()>1){
+                console.appendText("Fehler bei den Akzeptanztests");
+                onATDDT();
+            }
+
+            else if (compileHelper.NumberOfFailedFeatureTest() == 1) {
+
+
                 editableArea.clear();
                 test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
 
@@ -267,9 +301,10 @@ public class Controller {
 
                 console.clear();
                 phaseSetter = 0;
-
+                onSave();
             }
         }
+
         phase = phaseSetter;
         System.out.print("");
 
@@ -355,6 +390,7 @@ public class Controller {
     public void stepBack()
     {
         if(phase == 1) {
+            onSave();
             editableArea.clear();
             test.getContent().forEach(line -> editableArea.appendText(line + "\n"));
 
@@ -364,7 +400,7 @@ public class Controller {
 
             console.clear();
             phase = 0;
-
+            onSave();
         }
 
     }
@@ -517,7 +553,7 @@ public class Controller {
     @FXML
     private void onSave(){
 
-        if(phase%3 == 0) {
+        if(phase == 0) {
             task = new TextFile(Arrays.asList(uneditableRightBottomArea.getText().split("\n")));
             test = new TextFile(Arrays.asList(editableArea.getText().split("\n")));
             code = new TextFile(Arrays.asList(uneditableRightTopArea.getText().split("\n")));
