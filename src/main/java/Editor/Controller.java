@@ -98,10 +98,10 @@ public class Controller {
 
         consoleTitle.setText("");
 
-        if(phase==3) {
+
             compileHelper.SetFeatureTest("FeatureTest", atddt.getString());
 
-        }
+
 
         int phaseSetter = 0; // Dieser phaseSetter wird benutzt um die Phasen zu setzen da wenn man diese erhöht das nächsthöhere if-Event sonst getriggered wird.
         if(phase == 0) {
@@ -159,7 +159,7 @@ public class Controller {
                 onSave();
                 StartBabysteps();
             }
-            else if(compileHelper.NumberOfFailedTests() == 1)
+            else if(compileHelper.NumberOfFailedTests() == 2)
             {
                 onSave();
                 console.clear();
@@ -178,11 +178,11 @@ public class Controller {
                 StartBabysteps();
             }
             else {
-                if (compileHelper.NumberOfFailedTests() == 0)
+                if (compileHelper.NumberOfFailedTests() == 1)
                     console.appendText("Mind. ein Test muss fehlschlagen!");
                     console.positionCaret(1);
                     consoleTitle.setText("Tests");
-                if (compileHelper.NumberOfFailedTests() > 1)
+                if (compileHelper.NumberOfFailedTests() > 2)
                     console.appendText("Nur ein Test soll fehlschlagen!");
                     console.positionCaret(1);
                     consoleTitle.setText("Tests");
@@ -201,7 +201,7 @@ public class Controller {
                 consoleTitle.setText("Compiler");
                 phaseSetter = 1;
             }
-            else if (compileHelper.NumberOfFailedTests() > 0 ) {
+            else if (compileHelper.NumberOfFailedTests() > 1 ) {
                 editableArea.setStyle("-fx-background-color: green");
                 onSave();
                 console.clear();
@@ -218,7 +218,7 @@ public class Controller {
                 console.appendText("Tests passed. You are now in refactoring mode.\n Press 'Refactor' if you want to Test if your code works. \n Press 'Compile' if your code works and you want to continue to the Test-Phase. ");
                 console.positionCaret(1);
                 onSave();
-                babysteps.Stop();
+                if(model.isBabystepsEnabled())babysteps.Stop();
             }
         }
 
@@ -231,7 +231,7 @@ public class Controller {
                 consoleTitle.setText("Compiler");
                 editableArea.setStyle("-fx-background-color: gray");
                 phaseSetter = 2;
-            } else if (compileHelper.NumberOfFailedTests() > 0) {
+            } else if (compileHelper.NumberOfFailedTests() > 1) {
                 consoleTitle.setText("Tests");
                 console.appendText(compileHelper.GetTestFaillures());
                 console.positionCaret(1);
@@ -247,9 +247,10 @@ public class Controller {
             }
 
 
-            else if (compileHelper.NumberOfFailedTests() == 0 ) {
+            else if (compileHelper.NumberOfFailedTests() == 1 ) {
                 consoleTitle.setText("Tests");
                 console.clear();
+                console.appendText(compileHelper.GetTestFaillures());
                 console.appendText("Tests passed. You are now back in Test-Mode");
                 console.positionCaret(1);
                 editableArea.setStyle("-fx-background-color: red");
