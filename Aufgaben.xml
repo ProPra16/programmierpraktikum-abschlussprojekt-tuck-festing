@@ -20,8 +20,8 @@
 }
 
 
-	}
-</testClass><state>1</state><enableBabySteps>false</enableBabySteps><BabyStepTimer>60</BabyStepTimer><enableATTD>true</enableATTD><ATTD>import org.junit.Test;
+
+</testClass><state>0</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>120</BabyStepTimer><enableATTD>true</enableATTD><ATTD>import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class FeatureTest{
