@@ -159,7 +159,7 @@ public class Controller {
                 onSave();
                 StartBabysteps();
             }
-            else if(compileHelper.NumberOfFailedTests() == 2)
+            else if(compileHelper.NumberOfFailedTests() == 1)
             {
                 onSave();
                 console.clear();
@@ -178,11 +178,11 @@ public class Controller {
                 StartBabysteps();
             }
             else {
-                if (compileHelper.NumberOfFailedTests() == 1)
+                if (compileHelper.NumberOfFailedTests() ==0)
                     console.appendText("Mind. ein Test muss fehlschlagen!");
                     console.positionCaret(1);
                     consoleTitle.setText("Tests");
-                if (compileHelper.NumberOfFailedTests() > 2)
+                if (compileHelper.NumberOfFailedTests() > 1)
                     console.appendText("Nur ein Test soll fehlschlagen!");
                     console.positionCaret(1);
                     consoleTitle.setText("Tests");
@@ -192,7 +192,7 @@ public class Controller {
         }
 
         if (phase == 1) {
-            if (compileHelper.HasCompilerErrors()) {
+            if (compileHelper.HasCompilerErrors()&&compileHelper.NumberOfFailedTests()>0) {
                 editableArea.setStyle("-fx-background-color: green");
                 onSave();
                 console.clear();
@@ -201,7 +201,7 @@ public class Controller {
                 consoleTitle.setText("Compiler");
                 phaseSetter = 1;
             }
-            else if (compileHelper.NumberOfFailedTests() > 1 ) {
+            else if (compileHelper.NumberOfFailedTests() > 0 ) {
                 editableArea.setStyle("-fx-background-color: green");
                 onSave();
                 console.clear();
@@ -247,7 +247,7 @@ public class Controller {
             }
 
 
-            else if (compileHelper.NumberOfFailedTests() == 1 ) {
+            else if (compileHelper.NumberOfFailedTests() == 0 ) {
                 consoleTitle.setText("Tests");
                 console.clear();
                 console.appendText(compileHelper.GetTestFaillures());

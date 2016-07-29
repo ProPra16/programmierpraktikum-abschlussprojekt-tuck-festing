@@ -9,23 +9,34 @@
 
 
 	public class Class{
-
+public static int nman(int i){
+	return 0;
+	}
 	}
 </class><testClass>
 	import org.junit.Test;
 	import static org.junit.Assert.assertEquals;
 	public class TestClass{
 
-
+@Test
+public void test1(){
+assertEquals(4,Class.nmaln(2));
 }
 
-
-
+}
 </testClass><state>0</state><enableBabySteps>true</enableBabySteps><BabyStepTimer>120</BabyStepTimer><enableATTD>true</enableATTD><ATTD>import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 public class FeatureTest{
+@Test
+public void atest(){
+	assertEquals(4,Class.nmaln(2));
+	assertEquals(4,Class.nmaln(2));
+	assertEquals(9,Class.nmaln(3));
+	assertEquals(16,Class.nmaln(4));
+	assertEquals(25,Class.nmaln(5));
 
+}
 }
 </ATTD></exercise><exercise><exerciseName>
             Game of Life
