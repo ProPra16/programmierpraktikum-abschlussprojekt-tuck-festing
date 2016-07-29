@@ -192,22 +192,23 @@ public class Controller {
         }
 
         if (phase == 1) {
-            if (compileHelper.HasCompilerErrors()&&compileHelper.NumberOfFailedTests()>0) {
-                editableArea.setStyle("-fx-background-color: green");
-                onSave();
-                console.clear();
-                console.appendText(compileHelper.GetCompilerErros());
-                console.positionCaret(1);
-                consoleTitle.setText("Compiler");
-                phaseSetter = 1;
-            }
-            else if (compileHelper.NumberOfFailedTests() > 0 ) {
+
+             if (compileHelper.NumberOfFailedTests() > 0 ) {
                 editableArea.setStyle("-fx-background-color: green");
                 onSave();
                 console.clear();
                 console.appendText(compileHelper.GetTestFaillures());
                 console.positionCaret(1);
                 consoleTitle.setText("Tests");
+                phaseSetter = 1;
+            }
+            else if (compileHelper.HasCompilerErrors()) {
+                editableArea.setStyle("-fx-background-color: green");
+                onSave();
+                console.clear();
+                console.appendText(compileHelper.GetCompilerErros());
+                console.positionCaret(1);
+                consoleTitle.setText("Compiler");
                 phaseSetter = 1;
             }
             else {
